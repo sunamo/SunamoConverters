@@ -8,7 +8,7 @@ public class ConvertPascalConvention //: IConvertConvention
     /// <param name="p"></param>
     public static string FromConvention(string p)
     {
-        return SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
+        return SHSH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
     }
 
     public static bool IsPascal(string r)
@@ -81,7 +81,7 @@ public class ConvertPascalConvention //: IConvertConvention
         }
 
         var result = sb.ToString().Trim();
-        result = SH.FirstCharUpper(result);
+        result = SHSH.FirstCharUpper(result);
         return result;
     }
 }

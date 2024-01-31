@@ -107,6 +107,6 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 
     private static bool IsSpecialChar(char item)
     {
-        return CA.IsEqualToAnyElement<char>(item, AllCharsSE.bs, AllCharsSE.lb, AllCharsSE.rb, AllCharsSE.rsqb, AllCharsSE.lsqb, AllCharsSE.dot, AllCharsSE.apostrophe);
+        return CAGSH.IsEqualToAnyElement<char>(item, AllCharsSE.bs, AllCharsSE.lb, AllCharsSE.rb, AllCharsSE.rsqb, AllCharsSE.lsqb, AllCharsSE.dot, AllCharsSE.apostrophe);
     }
 }

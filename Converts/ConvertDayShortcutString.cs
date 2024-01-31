@@ -1,5 +1,3 @@
-using SunamoValues.Constants;
-
 namespace SunamoConverters.Converts;
 
 public class ConvertDayShortcutString
@@ -8,7 +6,7 @@ public class ConvertDayShortcutString
 
     public static int ToNumber(string s)
     {
-        var dx = DTConstants.daysInWeekENShortcut.IndexOf(SH.FirstCharUpper(s.ToLower()));
+        var dx = DTConstants.daysInWeekENShortcut.IndexOf(SHSH.FirstCharUpper(s.ToLower()));
         if (dx != -1)
         {
             return dx;

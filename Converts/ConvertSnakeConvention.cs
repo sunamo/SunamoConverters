@@ -52,8 +52,8 @@ public class ConvertSnakeConvention
     public static string FromConvention(string p)
     {
         var pa = SHSplit.SplitChar(p, new Char[] { AllCharsSE.lowbar });
-        CA.ToLower(pa);
-        CA.FirstCharUpper(pa);
+        CASH.ToLower(pa);
+        CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
         return string.Join(AllStringsSE.space, pa);
     }
 }

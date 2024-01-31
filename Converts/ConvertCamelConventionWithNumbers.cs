@@ -19,7 +19,7 @@ public class ConvertCamelConventionWithNumbers
     /// <param name="p"></param>
     public static string ToConvention(string p)
     {
-        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(p));
+        return SHSE.FirstCharLower(ConvertPascalConvention.ToConvention(p));
     }
 
     public static string FromConvention(string p, bool firstCharUpper = false)
@@ -27,7 +27,7 @@ public class ConvertCamelConventionWithNumbers
         var r = Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower();
         if (firstCharUpper)
         {
-            return SH.FirstCharUpper(r);
+            return SHSH.FirstCharUpper(r);
         }
         return r;
     }

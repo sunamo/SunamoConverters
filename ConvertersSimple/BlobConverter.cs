@@ -13,7 +13,7 @@ public class BlobConverter : ISimpleConverter<string, byte[]>
         StringBuilder sb = new StringBuilder();
         foreach (byte b in ba)
         {
-            sb.Append(SH.Format2(HexFormat, b.ToString()));
+            sb.Append(SHFormat.Format2(HexFormat, b.ToString()));
         }
         return "X'" + sb.ToString() + "'";
     }

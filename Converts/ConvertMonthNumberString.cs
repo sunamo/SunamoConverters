@@ -1,4 +1,3 @@
-
 namespace SunamoConverters.Converts;
 
 public class ConvertMonthNumberString //: IConvertNumberString
