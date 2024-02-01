@@ -2,6 +2,7 @@ namespace SunamoConverters.Converts;
 
 
 
+
 public class ConvertSnakeConvention
 {
     static string Sanitize(string t)
@@ -51,9 +52,10 @@ public class ConvertSnakeConvention
 
     public static string FromConvention(string p)
     {
-        var pa = SHSplit.SplitChar(p, new Char[] { AllCharsSE.lowbar });
-        CASH.ToLower(pa);
-        CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
-        return string.Join(AllStringsSE.space, pa);
+        throw new NotImplementedException();
+        //var pa = p.Split(AllCharsSE.lowbar); //SHSplit.SplitChar(p, new Char[] { AllCharsSE.lowbar });
+        //CASH.ToLower(pa);
+        //CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
+        //return string.Join(AllStringsSE.space, pa);
     }
 }

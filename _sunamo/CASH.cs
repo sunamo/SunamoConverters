@@ -1,9 +1,11 @@
+namespace SunamoConverters._sunamo;
+
 //namespace SunamoConverters._sunamo;
 
-//public class CASH
+//internal class CASH
 //{
-//    public static Func<List<string>, List<string>> ToLower;
-//    public static Func<List<string>, List<string>> FirstCharUpper;
+//    internal static Func<List<string>, List<string>> ToLower;
+//    internal static Func<List<string>, List<string>> FirstCharUpper;
 
 
 //}

@@ -40,7 +40,7 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
             case "ulong":
                 return "System.UInt64";
         }
-        ThrowEx.Custom("Nepodporovan\u00E9 kl\u00ED\u010Dov\u00E9 slovo");
+        throw new Exception("Nepodporovan\u00E9 kl\u00ED\u010Dov\u00E9 slovo");
         return null;
     }
 
@@ -99,7 +99,7 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         }
         if (throwExceptionWhenNotBasicType)
         {
-            ThrowEx.Custom("Nepodporovan\u00FD typ");
+            throw new Exception("Nepodporovan\u00FD typ");
             return null;
         }
         return fullName;

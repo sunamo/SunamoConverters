@@ -1,5 +1,7 @@
 namespace SunamoConverters.Converts;
 
+
+
 public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
     static Type type = typeof(ConvertEveryWordLargeCharConvention);
@@ -101,12 +103,12 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
         }
         string vr = sb.ToString().Trim();
 
-        vr = SHReplace.ReplaceAll(vr, AllStringsSE.space, AllStringsSE.doubleSpace);
+        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, AllStringsSE.space, AllStringsSE.doubleSpace);
         return vr;
     }
 
     private static bool IsSpecialChar(char item)
     {
-        return CAGSH.IsEqualToAnyElement<char>(item, AllCharsSE.bs, AllCharsSE.lb, AllCharsSE.rb, AllCharsSE.rsqb, AllCharsSE.lsqb, AllCharsSE.dot, AllCharsSE.apostrophe);
+        return new List<char>([AllCharsSE.bs, AllCharsSE.lb, AllCharsSE.rb, AllCharsSE.rsqb, AllCharsSE.lsqb, AllCharsSE.dot, AllCharsSE.apostrophe]).Any(d => d == item); //CAGSH.IsEqualToAnyElement<char>(item, );
     }
 }

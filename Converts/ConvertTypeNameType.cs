@@ -22,7 +22,7 @@ public class ConvertTypeNameType
                 return typeof(int);
             case "bool":
                 return typeof(bool);
-            case XlfKeys.Boolean:
+            case "boolean":
                 return typeof(bool);
             case "float":
                 return typeof(float);
@@ -71,7 +71,7 @@ public class ConvertTypeNameType
             case "UInt64":
                 return typeof(ulong);
         }
-        ThrowEx.Custom("Nepodporovan\u00FD typ");
+        throw new Exception("Nepodporovan\u00FD typ");
         return null;
     }
 

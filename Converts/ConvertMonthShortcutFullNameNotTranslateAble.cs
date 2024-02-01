@@ -1,36 +1,36 @@
 namespace SunamoConverters.Converts;
 
-public static class ConvertMonthShortcutFullName //: IConvertShortcutFullName
+public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertShortcutFullName
 {
-    static Type type = typeof(ConvertMonthShortcutFullName);
+    static Type type = typeof(ConvertMonthShortcutFullNameNotTranslateAble);
     public static string FromShortcut(string shortcut)
     {
         switch (shortcut)
         {
             case "Jan":
-                return XlfKeys.January;
+                return "January";
             case "Feb":
-                return XlfKeys.February;
+                return "February";
             case "Mar":
-                return XlfKeys.March;
+                return "March";
             case "Apr":
-                return XlfKeys.April;
+                return "April";
             case "May":
                 return "May";
             case "Jun":
-                return XlfKeys.June;
+                return "June";
             case "Jul":
-                return XlfKeys.July;
+                return "July";
             case "Aug":
-                return XlfKeys.August;
+                return "August";
             case "Sep":
-                return XlfKeys.September;
+                return "September";
             case "Oct":
-                return XlfKeys.October;
+                return "October";
             case "Nov":
-                return XlfKeys.November;
+                return "November";
             case "Dec":
-                return XlfKeys.December;
+                return "December";
             default:
                 ThrowEx.NotImplementedCase(shortcut);
                 break;
@@ -41,29 +41,29 @@ public static class ConvertMonthShortcutFullName //: IConvertShortcutFullName
     {
         switch (fullName)
         {
-            case XlfKeys.January:
+            case "January":
                 return "Jan";
-            case XlfKeys.February:
+            case "February":
                 return "Feb";
-            case XlfKeys.March:
+            case "March":
                 return "Mar";
-            case XlfKeys.April:
+            case "April":
                 return "Apr";
             case "May":
                 return "May";
-            case XlfKeys.June:
+            case "June":
                 return "Jun";
-            case XlfKeys.July:
+            case "July":
                 return "Jul";
-            case XlfKeys.August:
+            case "August":
                 return "Aug";
-            case XlfKeys.September:
+            case "September":
                 return "Sep";
-            case XlfKeys.October:
+            case "October":
                 return "Oct";
-            case XlfKeys.November:
+            case "November":
                 return "Nov";
-            case XlfKeys.December:
+            case "December":
                 return "Dec";
             default:
                 break;

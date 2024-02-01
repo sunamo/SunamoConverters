@@ -1,4 +1,7 @@
+
 namespace SunamoConverters.Converts;
+using SunamoData.Data;
+
 
 public static class ConvertRot12
 {

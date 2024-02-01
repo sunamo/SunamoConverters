@@ -6,7 +6,10 @@ public class ConvertDayShortcutString
 
     public static int ToNumber(string s)
     {
-        var dx = DTConstants.daysInWeekENShortcut.IndexOf(SHSH.FirstCharUpper(s.ToLower()));
+        var sb = new StringBuilder(s.ToLower());
+        sb[0] = char.ToUpper(sb[0]);
+
+        var dx = DTConstants.daysInWeekENShortcut.IndexOf(sb.ToString());
         if (dx != -1)
         {
             return dx;

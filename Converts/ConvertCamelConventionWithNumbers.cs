@@ -27,7 +27,10 @@ public class ConvertCamelConventionWithNumbers
         var r = Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower();
         if (firstCharUpper)
         {
-            return SHSH.FirstCharUpper(r);
+            var sb = new StringBuilder(r);
+            sb[0] = char.ToUpper(sb[0]);
+
+            return sb.ToString();
         }
         return r;
     }

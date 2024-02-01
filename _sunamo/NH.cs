@@ -1,5 +1,7 @@
+namespace SunamoConverters._sunamo;
+
 //namespace SunamoConverters._sunamo;
 
-//public class NH
+//internal class NH
 //{
 //}

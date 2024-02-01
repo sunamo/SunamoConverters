@@ -13,7 +13,7 @@ public class BlobConverter : ISimpleConverter<string, byte[]>
         StringBuilder sb = new StringBuilder();
         foreach (byte b in ba)
         {
-            sb.Append(SHFormat.Format2(HexFormat, b.ToString()));
+            sb.Append(/*string.Format*/ string.Format(HexFormat, b.ToString()));
         }
         return "X'" + sb.ToString() + "'";
     }
@@ -40,16 +40,18 @@ public class BlobConverter : ISimpleConverter<string, byte[]>
         catch (Exception ex)
         {
             ThrowEx.DummyNotThrow(ex);
-            if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
-            {
-                ThrowEx.Custom("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
-                return null;
-            }
-            else
-            {
-                ThrowEx.Custom(sess.i18n(XlfKeys.TheProvidedStringDoesNotAppearToBeHexEncoded) + ":" + hexEncoded);
-                return null;
-            }
+            //if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
+            //{
+            //    throw new Exception("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
+            //    return null;
+            //}
+            //else
+            //{
+            throw new Exception(xTheProvidedStringDoesNotAppearToBeHexEncoded + ":" + hexEncoded);
+            return null;
+            //}
         }
     }
+
+    public static string xTheProvidedStringDoesNotAppearToBeHexEncoded = "TheProvidedStringDoesNotAppearToBeHexEncoded";
 }
