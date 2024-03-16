@@ -13,7 +13,5 @@
     <DefineConstants>$(DefineConstants);ASYNC</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="SunamoData" Version="24.2.6.2" />
-    <PackageReference Include="SunamoInterfaces" Version="24.2.6.3" />
   </ItemGroup>
 </Project>
