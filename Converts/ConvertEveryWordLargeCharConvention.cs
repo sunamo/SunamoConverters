@@ -103,7 +103,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
         }
         string vr = sb.ToString().Trim();
 
-        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, AllStringsSE.space, AllStringsSE.doubleSpace);
+        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, AllStrings.space, AllStrings.doubleSpace);
         return vr;
     }
 

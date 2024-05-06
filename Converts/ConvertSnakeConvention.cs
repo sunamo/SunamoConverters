@@ -7,7 +7,7 @@ public class ConvertSnakeConvention
 {
     static string Sanitize(string t)
     {
-        var s = new StringBuilder(t.Replace(AllStringsSE.space, AllStringsSE.lowbar).Replace("__", AllStringsSE.lowbar));
+        var s = new StringBuilder(t.Replace(AllStrings.space, AllStrings.lowbar).Replace("__", AllStrings.lowbar));
         for (int i = s.Length - 1; i >= 0; i--)
         {
             var ch = s[i];
@@ -46,7 +46,7 @@ public class ConvertSnakeConvention
                 sb.Append(c);
             }
         }
-        var r = sb.ToString().Replace(AllStringsSE.space, AllStringsSE.lowbar);
+        var r = sb.ToString().Replace(AllStrings.space, AllStrings.lowbar);
         return r;
     }
 
@@ -56,6 +56,6 @@ public class ConvertSnakeConvention
         //var pa = p.Split(AllCharsSE.lowbar); //SHSplit.SplitChar(p, new Char[] { AllCharsSE.lowbar });
         //CASH.ToLower(pa);
         //CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
-        //return string.Join(AllStringsSE.space, pa);
+        //return string.Join(AllStrings.space, pa);
     }
 }
