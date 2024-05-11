@@ -1,4 +1,4 @@
-namespace SunamoConverters.Converts;
+namespace SunamoConverters;
 
 public class ConvertMonthShortcutNumber
 {

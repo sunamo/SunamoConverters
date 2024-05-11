@@ -1,4 +1,4 @@
-namespace SunamoConverters.Converts;
+namespace SunamoConverters;
 
 // Vůbec nechápu k čemu jsem tuto třídu programoval, je to duplicitní kód
 // Pokud nepotřebuji čísla, na jejich nahrazení zde jsou jiné metody

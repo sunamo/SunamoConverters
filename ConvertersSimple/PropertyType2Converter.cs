@@ -1,4 +1,4 @@
-namespace SunamoConverters.ConvertersSimple;
+namespace SunamoConverters;
 
 
 public class PropertyType2Converter : ISimpleConverter<PropertyType2, string>

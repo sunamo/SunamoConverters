@@ -1,5 +1,5 @@
 
-namespace SunamoConverters.Converts;
+namespace SunamoConverters;
 using SunamoData.Data;
 
 

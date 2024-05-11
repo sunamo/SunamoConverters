@@ -1,4 +1,4 @@
-namespace SunamoConverters.ConvertersSimple;
+namespace SunamoConverters;
 
 
 /// <summary>

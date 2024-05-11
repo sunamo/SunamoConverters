@@ -1,4 +1,4 @@
-namespace SunamoConverters._sunamo;
+namespace SunamoConverters;
 
 //namespace SunamoConverters._sunamo;
 
