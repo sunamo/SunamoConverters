@@ -39,7 +39,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                 if (char.IsUpper(item))
                 {
                     dalsiVelke = false;
-                    sb.Append(AllCharsSE.space);
+                    sb.Append(AllChars.space);
                     sb.Append(item);
                     continue;
                 }
@@ -50,7 +50,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                     {
                         if (!IsSpecialChar(sb[sb.Length - 1]))
                         {
-                            sb.Append(AllCharsSE.space);
+                            sb.Append(AllChars.space);
                         }
                     }
                     sb.Append(char.ToUpper(item));
@@ -68,7 +68,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                 }
                 else
                 {
-                    sb.Append(AllCharsSE.space);
+                    sb.Append(AllChars.space);
                     continue;
                 }
             }
@@ -76,7 +76,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             {
                 if (!char.IsUpper(sb[sb.Length - 1]))
                 {
-                    sb.Append(AllCharsSE.space);
+                    sb.Append(AllChars.space);
                 }
                 sb.Append(item);
             }
@@ -97,7 +97,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             }
             else
             {
-                sb.Append(AllCharsSE.space);
+                sb.Append(AllChars.space);
                 dalsiVelke = true;
             }
         }
@@ -109,6 +109,6 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 
     private static bool IsSpecialChar(char item)
     {
-        return new List<char>([AllCharsSE.bs, AllCharsSE.lb, AllCharsSE.rb, AllCharsSE.rsqb, AllCharsSE.lsqb, AllCharsSE.dot, AllCharsSE.apostrophe]).Any(d => d == item); //CAGSH.IsEqualToAnyElement<char>(item, );
+        return new List<char>([AllChars.bs, AllChars.lb, AllChars.rb, AllChars.rsqb, AllChars.lsqb, AllChars.dot, AllChars.apostrophe]).Any(d => d == item); //CAGSH.IsEqualToAnyElement<char>(item, );
     }
 }

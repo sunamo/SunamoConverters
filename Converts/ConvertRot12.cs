@@ -18,9 +18,9 @@ public static class ConvertRot12
         s_abc.Add(new ABT<char, char>('2', 'f'));
         s_abc.Add(new ABT<char, char>('3', '7'));
         s_abc.Add(new ABT<char, char>('4', 'Z'));
-        s_abc.Add(new ABT<char, char>('5', AllCharsSE.dot));
+        s_abc.Add(new ABT<char, char>('5', AllChars.dot));
         s_abc.Add(new ABT<char, char>('6', '4'));
-        s_abc.Add(new ABT<char, char>('7', AllCharsSE.lowbar));
+        s_abc.Add(new ABT<char, char>('7', AllChars.lowbar));
         s_abc.Add(new ABT<char, char>('8', 'L'));
         s_abc.Add(new ABT<char, char>('9', 't'));
         s_abc.Add(new ABT<char, char>('0', '0'));
@@ -51,9 +51,9 @@ public static class ConvertRot12
         s_abc.Add(new ABT<char, char>('y', '5'));
         s_abc.Add(new ABT<char, char>('z', 'O'));
         #region These 3 letters here could be, UH.UrlEncode and HttpUtility.HtmlEncode not encode it
-        s_abc.Add(new ABT<char, char>(AllCharsSE.lowbar, 'b'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.dot, 'm'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.dash, AllCharsSE.dash));
+        s_abc.Add(new ABT<char, char>(AllChars.lowbar, 'b'));
+        s_abc.Add(new ABT<char, char>(AllChars.dot, 'm'));
+        s_abc.Add(new ABT<char, char>(AllChars.dash, AllChars.dash));
         #endregion
         s_abc.Add(new ABT<char, char>('A', 'Q'));
         s_abc.Add(new ABT<char, char>('B', 'e'));

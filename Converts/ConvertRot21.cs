@@ -29,7 +29,7 @@ public static class ConvertRot21
         s_abc.Add(new ABT<char, char>('c', 'd'));
         s_abc.Add(new ABT<char, char>('d', 'i'));
         s_abc.Add(new ABT<char, char>('e', '0'));
-        s_abc.Add(new ABT<char, char>('f', AllCharsSE.asterisk));
+        s_abc.Add(new ABT<char, char>('f', AllChars.asterisk));
         s_abc.Add(new ABT<char, char>('g', 'T'));
         s_abc.Add(new ABT<char, char>('h', 'h'));
         s_abc.Add(new ABT<char, char>('i', '2'));
@@ -57,7 +57,7 @@ public static class ConvertRot21
         s_abc.Add(new ABT<char, char>('E', 'a'));
         s_abc.Add(new ABT<char, char>('F', 'H'));
         s_abc.Add(new ABT<char, char>('G', '^'));
-        s_abc.Add(new ABT<char, char>('H', AllCharsSE.excl));
+        s_abc.Add(new ABT<char, char>('H', AllChars.excl));
         s_abc.Add(new ABT<char, char>('I', '&'));
         s_abc.Add(new ABT<char, char>('J', '5'));
         s_abc.Add(new ABT<char, char>('K', '$'));
@@ -76,16 +76,16 @@ public static class ConvertRot21
         s_abc.Add(new ABT<char, char>('X', '4'));
         s_abc.Add(new ABT<char, char>('Y', 'k'));
         s_abc.Add(new ABT<char, char>('Z', 'y'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.excl, 'X'));
+        s_abc.Add(new ABT<char, char>(AllChars.excl, 'X'));
         s_abc.Add(new ABT<char, char>('@', 'q'));
-        s_abc.Add(new ABT<char, char>('#', AllCharsSE.percnt));
+        s_abc.Add(new ABT<char, char>('#', AllChars.percnt));
         s_abc.Add(new ABT<char, char>('$', '1'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.percnt, AllCharsSE.q));
+        s_abc.Add(new ABT<char, char>(AllChars.percnt, AllChars.q));
         s_abc.Add(new ABT<char, char>('^', 'b'));
         s_abc.Add(new ABT<char, char>('&', 'o'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.asterisk, AllCharsSE.lowbar));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.q, 'R'));
-        s_abc.Add(new ABT<char, char>(AllCharsSE.lowbar, '3'));
+        s_abc.Add(new ABT<char, char>(AllChars.asterisk, AllChars.lowbar));
+        s_abc.Add(new ABT<char, char>(AllChars.q, 'R'));
+        s_abc.Add(new ABT<char, char>(AllChars.lowbar, '3'));
         s_abc.Add(new ABT<char, char>('~', 'A'));
     }
 

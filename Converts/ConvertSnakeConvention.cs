@@ -53,7 +53,7 @@ public class ConvertSnakeConvention
     public static string FromConvention(string p)
     {
         throw new NotImplementedException();
-        //var pa = p.Split(AllCharsSE.lowbar); //SHSplit.SplitChar(p, new Char[] { AllCharsSE.lowbar });
+        //var pa = p.Split(AllChars.lowbar); //SHSplit.SplitChar(p, new Char[] { AllChars.lowbar });
         //CASH.ToLower(pa);
         //CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
         //return string.Join(AllStrings.space, pa);
