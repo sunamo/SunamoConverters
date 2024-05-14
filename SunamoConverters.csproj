@@ -32,5 +32,9 @@
     <Compile Include="..\SunamoExceptions\OnlyInSE\Exc.cs" Link="_linked\SunamoExceptions\OnlyInSE\Exc.cs" />
     <Compile Include="..\SunamoExceptions\OnlyInSE\Types.cs" Link="_linked\SunamoExceptions\OnlyInSE\Types.cs" />
     <Compile Include="..\SunamoXlfKeys\XlfKeys.cs" Link="_linked\SunamoXlfKeys\XlfKeys.cs" />
+    <Compile Include="..\SunamoExceptions\SHSE.cs" Link="_linked\SunamoExceptions\SHSE.cs" />
+    <Compile Include="..\SunamoData\Data\ABT.cs" Link="_linked\SunamoData\Data\ABT.cs" />
+    <Compile Include="..\SunamoUri\UH.cs" Link="_linked\SunamoUri\UH.cs" />
+    <Compile Include="..\SunamoShared\HttpUtility.cs" Link="_linked\SunamoShared\HttpUtility.cs" />
   </ItemGroup>
 </Project>
