@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-public class BlobConverter : ISimpleConverter<string, byte[]>
+public class BlobConverter : ISimpleConverterT<string, byte[]>
 {
     public string ConvertTo(byte[] ba)
     {

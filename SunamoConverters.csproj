@@ -15,7 +15,6 @@
   <ItemGroup>
     <Compile Include="..\SunamoInterfaces\Interfaces\ISimpleConverter.cs" Link="_linked\SunamoInterfaces\Interfaces\ISimpleConverter.cs" />
     <Compile Include="..\SunamoExceptions\OnlyInSE\ThrowEx.cs" Link="_linked\SunamoExceptions\OnlyInSE\ThrowEx.cs" />
-    <Compile Include="..\SunamoLang\SunamoI18N\AppLangHelper.cs" Link="_linked\SunamoLang\SunamoI18N\AppLangHelper.cs" />
     <Compile Include="..\SunamoEnums\Enums\PropertyType2.cs" Link="_linked\SunamoEnums\Enums\PropertyType2.cs" />
     <Compile Include="..\SunamoValues\Constants\DTConstants.cs" Link="_linked\SunamoValues\Constants\DTConstants.cs" />
     <Compile Include="..\SunamoInterfaces\Interfaces\IConvertConvention.cs" Link="_linked\SunamoInterfaces\Interfaces\IConvertConvention.cs" />
@@ -34,7 +33,9 @@
     <Compile Include="..\SunamoXlfKeys\XlfKeys.cs" Link="_linked\SunamoXlfKeys\XlfKeys.cs" />
     <Compile Include="..\SunamoExceptions\SHSE.cs" Link="_linked\SunamoExceptions\SHSE.cs" />
     <Compile Include="..\SunamoData\Data\ABT.cs" Link="_linked\SunamoData\Data\ABT.cs" />
-    <Compile Include="..\SunamoUri\UH.cs" Link="_linked\SunamoUri\UH.cs" />
     <Compile Include="..\SunamoShared\HttpUtility.cs" Link="_linked\SunamoShared\HttpUtility.cs" />
+    <Compile Include="..\SunamoEnums\Enums\FromToUse.cs" Link="_linked\SunamoEnums\Enums\FromToUse.cs" />
+    <Compile Include="..\SunamoInterfaces\Interfaces\ISimpleConverterT.cs" Link="_linked\SunamoInterfaces\Interfaces\ISimpleConverterT.cs" />
+    <Compile Include="..\SunamoExceptions\InSunamoIsDerivedFrom\HttpUtilitySE.cs" Link="_linked\SunamoExceptions\InSunamoIsDerivedFrom\HttpUtilitySE.cs" />
   </ItemGroup>
 </Project>

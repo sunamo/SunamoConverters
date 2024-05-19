@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-public class PropertyType2Converter : ISimpleConverter<PropertyType2, string>
+public class PropertyType2Converter : ISimpleConverterT<PropertyType2, string>
 {
     static Type type = typeof(PropertyType2Converter);
 

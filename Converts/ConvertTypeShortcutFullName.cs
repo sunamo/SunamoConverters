@@ -1,4 +1,10 @@
-namespace SunamoConverters;
+namespace
+#if SunamoDevCode
+SunamoDevCode
+#else
+SunamoConverters
+#endif
+;
 
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {

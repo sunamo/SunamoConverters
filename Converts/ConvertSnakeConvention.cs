@@ -1,5 +1,12 @@
-namespace SunamoConverters;
 
+
+namespace
+#if SunamoDevCode
+    SunamoDevCode
+#else
+    SunamoConverters
+#endif
+;
 
 
 
