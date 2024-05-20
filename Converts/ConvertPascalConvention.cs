@@ -5,7 +5,6 @@ SunamoDevCode
 SunamoConverters
 #endif
 ;
-
 public class ConvertPascalConvention //: IConvertConvention
 {
     /// <summary>
@@ -17,18 +16,15 @@ public class ConvertPascalConvention //: IConvertConvention
         throw new NotImplementedException();
         //return SHSH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
     }
-
     public static bool IsPascal(string r)
     {
         var s = ToConvention(r);
         return r == s;
     }
-
     public static List<string> FromToWords(string s)
     {
         return null;
     }
-
     /// <summary>
     /// Will include numbers
     /// hello world = HelloWorld
@@ -38,8 +34,6 @@ public class ConvertPascalConvention //: IConvertConvention
     /// <param name="p"></param>
     public static string ToConvention(string p)
     {
-
-
         StringBuilder sb = new StringBuilder();
         bool dalsiVelke = false;
         foreach (char item in p)
@@ -86,12 +80,9 @@ public class ConvertPascalConvention //: IConvertConvention
                 dalsiVelke = true;
             }
         }
-
         var result = sb.ToString().Trim();
-
         StringBuilder sb2 = new StringBuilder(result);
         sb2[0] = char.ToUpper(sb2[0]);
-
         //result = SHSH.FirstCharUpper(result);
         return result;
     }

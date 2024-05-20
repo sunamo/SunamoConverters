@@ -5,14 +5,11 @@ SunamoDevCode
 SunamoConverters
 #endif
 ;
-
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {
     const string systemDot = "System.";
-
     public static string FromShortcut(string shortcut)
     {
-
         switch (shortcut)
         {
             case "string":
@@ -49,17 +46,14 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         throw new Exception("Nepodporovan\u00E9 kl\u00ED\u010Dov\u00E9 slovo");
         return null;
     }
-
     public static string ToShortcut(object instance)
     {
         return ToShortcut(instance.GetType().FullName, false);
     }
-
     public static string ToShortcut(string fullName)
     {
         return ToShortcut(fullName, true);
     }
-
     /// <param name="fullName"></param>
     public static string ToShortcut(string fullName, bool throwExceptionWhenNotBasicType)
     {
@@ -67,7 +61,6 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         {
             fullName = systemDot + fullName;
         }
-
         switch (fullName)
         {
             #region MyRegion
@@ -110,6 +103,5 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         }
         return fullName;
     }
-
     static Type type = typeof(ConvertTypeShortcutFullName);
 }

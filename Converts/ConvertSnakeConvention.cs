@@ -1,16 +1,10 @@
-
-
-
 namespace
 #if SunamoDevCode
-    SunamoDevCode
+SunamoDevCode
 #else
 SunamoConverters
 #endif
 ;
-
-
-
 public class ConvertSnakeConvention
 {
     static string Sanitize(string t)
@@ -26,7 +20,6 @@ public class ConvertSnakeConvention
         }
         return s.ToString();
     }
-
     public static string ToConvention(string text)
     {
         var rz = string.Concat(text.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
@@ -57,7 +50,6 @@ public class ConvertSnakeConvention
         var r = sb.ToString().Replace(AllStrings.space, AllStrings.lowbar);
         return r;
     }
-
     public static string FromConvention(string p)
     {
         throw new NotImplementedException();
