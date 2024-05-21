@@ -1,4 +1,4 @@
-namespace
+﻿namespace
 #if SunamoDevCode
 SunamoDevCode
 #else
@@ -51,11 +51,13 @@ public class ConvertSnakeConvention
         return r;
     }
     public static string FromConvention(string p)
+
     {
-        throw new NotImplementedException();
-        //var pa = p.Split(AllChars.lowbar); //SHSplit.SplitChar(p, new Char[] { AllChars.lowbar });
-        //CASH.ToLower(pa);
-        //CAChangeContent.ChangeContent0(null, pa, SHSH.FirstCharUpper);
-        //return string.Join(AllStrings.space, pa);
-    }
+        ThrowEx.Custom("Zkusit knihovnu třetích stran");
+        return null;
+    //    var pa = p.Split(AllChars.lowbar); //SHSplit.SplitChar(p, new Char[] { AllChars.lowbar });
+    //CASunamoExceptions.ToLower(pa);
+    //    CAChangeContent.ChangeContent0(null, pa, SH.FirstCharUpper);
+    //    return string.Join(AllStrings.space, pa);
+}
 }

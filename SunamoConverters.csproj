@@ -37,5 +37,9 @@
     <Compile Include="..\SunamoEnums\Enums\FromToUse.cs" Link="_linked\SunamoEnums\Enums\FromToUse.cs" />
     <Compile Include="..\SunamoInterfaces\Interfaces\ISimpleConverterT.cs" Link="_linked\SunamoInterfaces\Interfaces\ISimpleConverterT.cs" />
     <Compile Include="..\SunamoExceptions\InSunamoIsDerivedFrom\HttpUtilitySE.cs" Link="_linked\SunamoExceptions\InSunamoIsDerivedFrom\HttpUtilitySE.cs" />
+    <Compile Include="..\SunamoExceptions\_AddedToAllCsproj\FSSunamoExceptions.cs" Link="_linked\SunamoExceptions\_AddedToAllCsproj\FSSunamoExceptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 </Project>

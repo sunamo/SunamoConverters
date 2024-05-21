@@ -1,3 +1,5 @@
+
+
 namespace
 #if SunamoDevCode
 SunamoDevCode
@@ -13,8 +15,8 @@ public class ConvertPascalConvention //: IConvertConvention
     /// <param name="p"></param>
     public static string FromConvention(string p)
     {
-        throw new NotImplementedException();
-        //return SHSH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
+        //ThrowEx.NotImplementedMethod();
+        return SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
     }
     public static bool IsPascal(string r)
     {
