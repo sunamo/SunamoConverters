@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-public interface IConvertShortcutFullName
+internal interface IConvertShortcutFullName
 {
     string FromShortcut(string shortcut);
     string ToShortcut(string fullName);

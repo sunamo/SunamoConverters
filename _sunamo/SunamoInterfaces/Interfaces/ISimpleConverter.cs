@@ -1,6 +1,6 @@
 namespace SunamoConverters;
 
 
-public interface ISimpleConverter : ISimpleConverterT<string, string>
+internal interface ISimpleConverter : ISimpleConverterT<string, string>
 {
 }
