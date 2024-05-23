@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-internal interface IConvertNumberString
+public interface IConvertNumberString
 {
     int ToNumber(string s);
     string ToString(int number);

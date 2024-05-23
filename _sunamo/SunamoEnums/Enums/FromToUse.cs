@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-internal enum FromToUse
+public enum FromToUse
 {
     DateTime,
     Unix,

@@ -7,21 +7,21 @@ using System.Net;
 ///     Není ve sunamo, tím pádem nebudu dávat do NS
 ///     Třída byla vytvořena abych nemusel importovat System.Web pro metody jež nejsou v WebUtility
 /// </summary>
-internal class HttpUtility : HttpUtilitySE
+public class HttpUtility : HttpUtilitySE
 {
-    internal static NameValueCollection ParseQueryString(string responseContent)
+    public static NameValueCollection ParseQueryString(string responseContent)
     {
         return HttpUtilitySE.ParseQueryString(responseContent);
     }
-    internal static string HtmlDecode(string v)
+    public static string HtmlDecode(string v)
     {
         return WebUtility.HtmlDecode(v);
     }
-    internal static string HtmlEncode(string html)
+    public static string HtmlEncode(string html)
     {
         return HtmlEncodeWithCompatibility(html);
     }
-    internal static string HtmlEncodeWithCompatibility(string html, bool backwardCompatibility = true)
+    public static string HtmlEncodeWithCompatibility(string html, bool backwardCompatibility = true)
     {
         if (html == null)
         {
@@ -33,11 +33,11 @@ internal class HttpUtility : HttpUtilitySE
             : new Regex("&(?!(amp;)|(lt;)|(gt;)|(quot;)|(nbsp;)|(reg;))", RegexOptions.IgnoreCase);
         return rx.Replace(html, "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;");
     }
-    internal static string UrlEncode(string slnName)
+    public static string UrlEncode(string slnName)
     {
         return WebUtility.UrlEncode(slnName);
     }
-    internal static string UrlDecode(string v)
+    public static string UrlDecode(string v)
     {
         return WebUtility.UrlDecode(v);
     }
