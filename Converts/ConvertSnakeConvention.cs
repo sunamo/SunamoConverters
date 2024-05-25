@@ -1,4 +1,4 @@
-﻿namespace
+namespace
 #if SunamoDevCode
 SunamoDevCode
 #else
