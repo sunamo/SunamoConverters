@@ -1,10 +1,3 @@
-namespace
-#if SunamoDevCode
-SunamoDevCode
-#else
-SunamoConverters
-#endif
-;
 public class ConvertSnakeConvention
 {
     static string Sanitize(string t)

@@ -1,12 +1,5 @@
 
 
-namespace
-#if SunamoDevCode
-SunamoDevCode
-#else
-SunamoConverters
-#endif
-;
 public class ConvertPascalConvention //: IConvertConvention
 {
     /// <summary>
