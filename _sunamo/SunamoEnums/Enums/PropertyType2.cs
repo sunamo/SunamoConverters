@@ -1,7 +1,7 @@
 namespace SunamoConverters;
 
 
-public enum PropertyType2
+internal enum PropertyType2
 {
     ULong,
     UInt,
