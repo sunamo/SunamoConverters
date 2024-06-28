@@ -1,3 +1,4 @@
+namespace SunamoConverters;
 
 
 public class ConvertPascalConvention //: IConvertConvention

@@ -1,3 +1,5 @@
+
+namespace SunamoConverters;
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {
     const string systemDot = "System.";
