@@ -25,3 +25,7 @@ global using SunamoConverters._sunamo.SunamoExceptions.OnlyInSE;
 global using SunamoConverters._sunamo.SunamoExceptions._AddedToAllCsproj;
 global using SunamoConverters._sunamo.SunamoInterfaces.Interfaces;
 global using SunamoConverters._sunamo.SunamoValues.Constants;
+global using System.Collections.Specialized;
+global using System.Diagnostics;
+global using System.Net;
+global using System.Threading.Tasks;

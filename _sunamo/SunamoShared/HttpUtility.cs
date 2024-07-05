@@ -1,7 +1,5 @@
 namespace SunamoConverters._sunamo.SunamoShared;
 
-using System.Collections.Specialized;
-using System.Net;
 
 /// <summary>
 ///     Není ve sunamo, tím pádem nebudu dávat do NS

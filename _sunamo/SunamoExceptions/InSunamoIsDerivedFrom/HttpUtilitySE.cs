@@ -1,6 +1,5 @@
 namespace SunamoConverters._sunamo.SunamoExceptions.InSunamoIsDerivedFrom;
 
-using System.Collections.Specialized;
 
 internal class HttpUtilitySE
 {
