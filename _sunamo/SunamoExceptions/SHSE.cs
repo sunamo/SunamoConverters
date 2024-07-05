@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoExceptions;
 
 
 internal class SHSE

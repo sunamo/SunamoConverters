@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoValues.Constants;
 
 
 internal class DTConstants

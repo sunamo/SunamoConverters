@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoInterfaces.Interfaces;
 
 
 internal interface IConvertConvention

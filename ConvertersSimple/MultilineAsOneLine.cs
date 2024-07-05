@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters.ConvertersSimple;
 
 public class MultilineAsOneLine
 {

@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._public.SunamoEnums.Enums;
 
 
 public enum PropertyTypes

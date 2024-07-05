@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoEnums.Enums;
 
 
 internal enum FromToUseConverters

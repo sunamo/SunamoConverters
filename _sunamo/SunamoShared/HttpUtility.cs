@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoShared;
 
 using System.Collections.Specialized;
 using System.Net;

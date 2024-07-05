@@ -1,5 +1,5 @@
 
-namespace SunamoConverters;
+namespace SunamoConverters.Converts;
 public class ConvertSnakeConvention
 {
     static string Sanitize(string t)

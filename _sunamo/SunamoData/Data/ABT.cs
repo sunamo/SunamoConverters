@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters._sunamo.SunamoData.Data;
 
 
 internal class ABT<Key, Value>

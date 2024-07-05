@@ -1,4 +1,4 @@
-namespace SunamoConverters;
+namespace SunamoConverters.Converts;
 
 /// <summary>
 /// TODO: Study about endians
