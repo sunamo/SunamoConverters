@@ -1,4 +1,4 @@
-namespace SunamoConverters._sunamo.SunamoEnums.Enums;
+namespace SunamoConverters._public.SunamoEnums.Enums;
 public enum FromToUseConverters
 {
     DateTime,

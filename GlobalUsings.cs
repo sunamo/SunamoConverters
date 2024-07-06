@@ -19,7 +19,6 @@ global using SunamoConverters._sunamo.SunamoValues;
 global using SunamoConverters._sunamo.SunamoXlfKeys;
 global using SunamoConverters._public.SunamoEnums.Enums;
 global using SunamoConverters._sunamo.SunamoData.Data;
-global using SunamoConverters._sunamo.SunamoEnums.Enums;
 global using SunamoConverters._sunamo.SunamoExceptions.InSunamoIsDerivedFrom;
 global using SunamoConverters._sunamo.SunamoExceptions.OnlyInSE;
 global using SunamoConverters._sunamo.SunamoExceptions._AddedToAllCsproj;
