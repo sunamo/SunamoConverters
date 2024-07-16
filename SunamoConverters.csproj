@@ -24,5 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="_sunamo\SunamoString\" />
   </ItemGroup>
 </Project>

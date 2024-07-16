@@ -18,6 +18,6 @@ public class ConvertCamelConvention
     /// <param name="p"></param>
     public static string ToConvention(string p)
     {
-        return _sunamo.SunamoString.SH.FirstCharLower(ConvertPascalConvention.ToConvention(p));
+        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(p));
     }
 }

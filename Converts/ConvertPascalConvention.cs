@@ -9,7 +9,7 @@ public class ConvertPascalConvention //: IConvertConvention
     public static string FromConvention(string p)
     {
         //ThrowEx.NotImplementedMethod();
-        return _sunamo.SunamoString.SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
+        return SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
     }
     public static bool IsPascal(string r)
     {
