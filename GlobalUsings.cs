@@ -17,3 +17,4 @@ global using SunamoConverters._sunamo.SunamoValues.Constants;
 global using System.Collections.Specialized;
 global using System.Diagnostics;
 global using System.Net;
+global using SunamoConverters._sunamo;
