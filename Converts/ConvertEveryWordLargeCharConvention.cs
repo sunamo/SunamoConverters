@@ -1,7 +1,5 @@
 namespace SunamoConverters.Converts;
 
-
-
 public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
     static Type type = typeof(ConvertEveryWordLargeCharConvention);
@@ -109,6 +107,6 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 
     private static bool IsSpecialChar(char item)
     {
-        return new List<char>([AllChars.bs, AllChars.lb, AllChars.rb, AllChars.rsqb, AllChars.lsqb, AllChars.dot, AllChars.apostrophe]).Any(d => d == item); //CAGSH.IsEqualToAnyElement<char>(item, );
+        return new List<char>([AllChars.bs, AllChars.lb, AllChars.rb, AllChars.rsqb, AllChars.lsqb, AllChars.dot, AllChars.apostrophe]).Any(d => d == item); //CAG.IsEqualToAnyElement<char>(item, );
     }
 }

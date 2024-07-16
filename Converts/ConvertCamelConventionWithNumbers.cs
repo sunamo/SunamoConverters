@@ -19,7 +19,7 @@ public class ConvertCamelConventionWithNumbers
     /// <param name="p"></param>
     public static string ToConvention(string p)
     {
-        return SHSE.FirstCharLower(ConvertPascalConvention.ToConvention(p));
+        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(p));
     }
 
     public static string FromConvention(string p, bool firstCharUpper = false)

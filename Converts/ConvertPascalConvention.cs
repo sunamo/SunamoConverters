@@ -1,6 +1,5 @@
 namespace SunamoConverters.Converts;
 
-
 public class ConvertPascalConvention //: IConvertConvention
 {
     /// <summary>
@@ -10,7 +9,7 @@ public class ConvertPascalConvention //: IConvertConvention
     public static string FromConvention(string p)
     {
         //ThrowEx.NotImplementedMethod();
-        return SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
+        return _sunamo.SunamoString.SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
     }
     public static bool IsPascal(string r)
     {
@@ -79,7 +78,7 @@ public class ConvertPascalConvention //: IConvertConvention
         var result = sb.ToString().Trim();
         StringBuilder sb2 = new StringBuilder(result);
         sb2[0] = char.ToUpper(sb2[0]);
-        //result = SHSH.FirstCharUpper(result);
+        //result = SH.FirstCharUpper(result);
         return result;
     }
 }

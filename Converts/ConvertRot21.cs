@@ -1,7 +1,5 @@
 namespace SunamoConverters.Converts;
 
-
-
 public static class ConvertRot21
 {
     /// <summary>

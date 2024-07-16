@@ -1,15 +1,14 @@
 namespace SunamoConverters._sunamo.SunamoShared;
 
-
 /// <summary>
 ///     Není ve sunamo, tím pádem nebudu dávat do NS
 ///     Třída byla vytvořena abych nemusel importovat System.Web pro metody jež nejsou v WebUtility
 /// </summary>
-internal class HttpUtility : HttpUtilitySE
+internal class HttpUtility : SunamoExceptions.InSunamoIsDerivedFrom.HttpUtility
 {
     internal static NameValueCollection ParseQueryString(string responseContent)
     {
-        return HttpUtilitySE.ParseQueryString(responseContent);
+        return HttpUtility.ParseQueryString(responseContent);
     }
     internal static string HtmlDecode(string v)
     {

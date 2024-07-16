@@ -1,7 +1,6 @@
 namespace SunamoConverters._sunamo.SunamoExceptions.InSunamoIsDerivedFrom;
 
-
-internal class HttpUtilitySE
+internal class HttpUtility
 {
     /// <summary>
     ///     Jsou tu 2 možnosti:
