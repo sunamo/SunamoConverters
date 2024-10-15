@@ -38,7 +38,7 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         }
         catch (Exception ex)
         {
-            ThrowEx.DummyNotThrow(ex);
+            ThrowEx.Custom(ex);
             //if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
             //{
             //    throw new Exception("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
