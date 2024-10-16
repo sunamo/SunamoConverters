@@ -16,3 +16,4 @@ global using System.Diagnostics;
 global using System.Net;
 global using SunamoConverters._sunamo;
 global using System.Reflection;
+global using System.Diagnostics.CodeAnalysis;
