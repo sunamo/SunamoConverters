@@ -37,7 +37,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                 if (char.IsUpper(item))
                 {
                     dalsiVelke = false;
-                    sb.Append(AllChars.space);
+                    sb.Append(' ');
                     sb.Append(item);
                     continue;
                 }
@@ -48,7 +48,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                     {
                         if (!IsSpecialChar(sb[sb.Length - 1]))
                         {
-                            sb.Append(AllChars.space);
+                            sb.Append(' ');
                         }
                     }
                     sb.Append(char.ToUpper(item));
@@ -66,7 +66,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                 }
                 else
                 {
-                    sb.Append(AllChars.space);
+                    sb.Append(' ');
                     continue;
                 }
             }
@@ -74,7 +74,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             {
                 if (!char.IsUpper(sb[sb.Length - 1]))
                 {
-                    sb.Append(AllChars.space);
+                    sb.Append(' ');
                 }
                 sb.Append(item);
             }
@@ -95,18 +95,18 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             }
             else
             {
-                sb.Append(AllChars.space);
+                sb.Append(' ');
                 dalsiVelke = true;
             }
         }
         string vr = sb.ToString().Trim();
 
-        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, AllStrings.space, AllStrings.doubleSpace);
+        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, "", "");
         return vr;
     }
 
     private static bool IsSpecialChar(char item)
     {
-        return new List<char>([AllChars.bs, AllChars.lb, AllChars.rb, AllChars.rsqb, AllChars.lsqb, AllChars.dot, AllChars.apostrophe]).Any(d => d == item); //CAG.IsEqualToAnyElement<char>(item, );
+        return new List<char>(['\\', '(', ')', ']', '[', '.', '\'']).Any(d => d == item); //CAG.IsEqualToAnyElement<char>(item, );
     }
 }

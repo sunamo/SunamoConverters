@@ -26,7 +26,7 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         }
         try
         {
-            hexEncoded = hexEncoded.Replace("X'", "").TrimEnd(AllChars.bs); ;
+            hexEncoded = hexEncoded.Replace("X'", "").TrimEnd('\\'); ;
 
             int l = Convert.ToInt32(hexEncoded.Length / 2);
             byte[] b = new byte[l];

@@ -6,7 +6,7 @@ global using System.Data;
 global using System.Text.RegularExpressions;
 global using System.Collections;
 global using System.IO;
-global using SunamoConverters._sunamo.SunamoValues;
+global using SunamoConverters;
 global using SunamoConverters._public.SunamoEnums.Enums;
 global using SunamoConverters._sunamo.SunamoData.Data;
 global using SunamoConverters._sunamo.SunamoExceptions;

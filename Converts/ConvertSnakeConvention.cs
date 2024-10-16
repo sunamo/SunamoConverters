@@ -4,7 +4,7 @@ public class ConvertSnakeConvention
 {
     static string Sanitize(string t)
     {
-        var s = new StringBuilder(t.Replace(AllStrings.space, AllStrings.lowbar).Replace("__", AllStrings.lowbar));
+        var s = new StringBuilder(t.Replace("", "_").Replace("__", "_"));
         for (int i = s.Length - 1; i >= 0; i--)
         {
             var ch = s[i];
@@ -42,7 +42,7 @@ public class ConvertSnakeConvention
                 sb.Append(c);
             }
         }
-        var r = sb.ToString().Replace(AllStrings.space, AllStrings.lowbar);
+        var r = sb.ToString().Replace("", "_");
         return r;
     }
     public static string FromConvention(string p)
@@ -50,9 +50,9 @@ public class ConvertSnakeConvention
     {
         ThrowEx.Custom("Zkusit knihovnu třetích stran");
         return null;
-    //    var pa = p.Split(AllChars.lowbar); //SHSplit.SplitCharMore(p, new Char[] { AllChars.lowbar });
+    //    var pa = p.Split('_'); //SHSplit.SplitCharMore(p, new Char[] { '_' });
     //CA.ToLower(pa);
     //    CAChangeContent.ChangeContent0(null, pa, SH.FirstCharUpper);
-    //    return string.Join(AllStrings.space, pa);
+    //    return string.Join("", pa);
 }
 }
