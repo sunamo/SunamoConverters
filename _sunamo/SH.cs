@@ -91,7 +91,7 @@ internal class SH
         throw new Exception(
             "Tahle metoda vypadala jinak ale jak idiot jsem ji změnil. Tím jak jsem poté přesouval metody tam zpět už je těžké se k tomu dostat.");
         return null;
-        //return n == null ? " " + "(null)" : "" + v.ToString();
+        return n == null ? " " + "(null)" : " " + v.ToString();
     }
     /// <summary>
     ///     Usage: BadFormatOfElementInList
@@ -103,7 +103,7 @@ internal class SH
     internal static string NullToStringOrDefault(object n)
     {
         //return NullToStringOrDefault(n, null);
-        return n == null ? " " + "(null)" : "" + n;
+        return n == null ? " " + "(null)" : " " + n;
     }
     /// <summary>
     ///     Usage: Exceptions.MoreCandidates

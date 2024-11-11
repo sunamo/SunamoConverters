@@ -101,7 +101,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
         }
         string vr = sb.ToString().Trim();
 
-        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, "", "");
+        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, " ", "");
         return vr;
     }
 
