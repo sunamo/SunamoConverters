@@ -10,14 +10,6 @@ internal class HttpUtility //: SunamoExceptions.InSunamoIsDerivedFrom.HttpUtilit
     {
         return HttpUtility.ParseQueryString(responseContent);
     }
-    internal static string HtmlDecode(string v)
-    {
-        return WebUtility.HtmlDecode(v);
-    }
-    internal static string HtmlEncode(string html)
-    {
-        return HtmlEncodeWithCompatibility(html);
-    }
     internal static string HtmlEncodeWithCompatibility(string html, bool backwardCompatibility = true)
     {
         if (html == null)
@@ -29,13 +21,5 @@ internal class HttpUtility //: SunamoExceptions.InSunamoIsDerivedFrom.HttpUtilit
             ? new Regex("&(?!(amp;)|(lt;)|(gt;)|(quot;))", RegexOptions.IgnoreCase)
             : new Regex("&(?!(amp;)|(lt;)|(gt;)|(quot;)|(nbsp;)|(reg;))", RegexOptions.IgnoreCase);
         return rx.Replace(html, "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;");
-    }
-    internal static string UrlEncode(string slnName)
-    {
-        return WebUtility.UrlEncode(slnName);
-    }
-    internal static string UrlDecode(string v)
-    {
-        return WebUtility.UrlDecode(v);
     }
 }
