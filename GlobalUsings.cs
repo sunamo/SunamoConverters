@@ -20,7 +20,6 @@ global using System.Diagnostics.CodeAnalysis;
 global using SunamoConverters.ConvertersSimple;
 global using SunamoConverters.Converts;
 global using SunamoConverters._sunamo.SunamoShared;
-
 global using ILogger = Microsoft.Extensions.Logging.ILogger;
 global using Microsoft.Extensions.Logging;
 global using NullLogger = Microsoft.Extensions.Logging.Abstractions.NullLogger;
