@@ -16,10 +16,7 @@ public class ConvertPascalConvention //: IConvertConvention
         var s = ToConvention(r);
         return r == s;
     }
-    public static List<string> FromToWords(string s)
-    {
-        return null;
-    }
+
     /// <summary>
     /// Will include numbers
     /// hello world = HelloWorld

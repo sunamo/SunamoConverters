@@ -4,15 +4,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
     static Type type = typeof(ConvertEveryWordLargeCharConvention);
 
-    /// <summary>
-    /// NI
-    /// </summary>
-    /// <param name="p"></param>
-    public static string FromConvention(string p)
-    {
-        ThrowEx.NotImplementedMethod();
-        return null;
-    }
+
 
     /// <summary>
     /// hello world => Hello World
