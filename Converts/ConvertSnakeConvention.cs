@@ -45,14 +45,14 @@ public class ConvertSnakeConvention
         var r = sb.ToString().Replace(" ", "_");
         return r;
     }
-    public static string FromConvention(string p)
+    //public static string FromConvention(string p)
 
-    {
-        ThrowEx.Custom("Zkusit knihovnu třetích stran");
-        return null;
-        //    var pa = p.Split('_'); //SHSplit.SplitChar(p, new Char[] { '_' });
-        //CA.ToLower(pa);
-        //    CAChangeContent.ChangeContent0(null, pa, SH.FirstCharUpper);
-        //    return string.Join("", pa);
-    }
+    //{
+    //    ThrowEx.Custom("Zkusit knihovnu třetích stran");
+    //    return null;
+    //    //    var pa = p.Split('_'); //SHSplit.SplitChar(p, new Char[] { '_' });
+    //    //CA.ToLower(pa);
+    //    //    CAChangeContent.ChangeContent0(null, pa, SH.FirstCharUpper);
+    //    //    return string.Join("", pa);
+    //}
 }
