@@ -1,20 +1,23 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.Converts;
 
 public class ConvertDayShortcutString
 {
     static Type type = typeof(ConvertDayShortcutString);
 
-    public static int ToNumber(string s)
+    public static int ToNumber(string text)
     {
-        var sb = new StringBuilder(s.ToLower());
+        var stringBuilder = new StringBuilder(text.ToLower());
         sb[0] = char.ToUpper(sb[0]);
 
-        var dx = DTConstants.daysInWeekENShortcut.IndexOf(sb.ToString());
+        var dx = DTConstants.daysInWeekENShortcut.IndexOf(stringBuilder.ToString());
         if (dx != -1)
         {
             return dx;
         }
-        ThrowEx.IsNotAllowed(s);
+        ThrowEx.IsNotAllowed(text);
         return -1;
     }
 

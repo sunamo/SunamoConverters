@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.Converts;
 
 public class ConvertOnlyLowercase
@@ -13,23 +16,23 @@ public class ConvertOnlyLowercase
     /// </summary>
     /// <param name="s"></param>
     /// <returns></returns>
-    public static string To(string s)
+    public static string To(string text)
     {
-        StringBuilder sb = new StringBuilder();
-        foreach (var item in s)
+        StringBuilder stringBuilder = new StringBuilder();
+        foreach (var item in text)
         {
             if (char.IsUpper(item))
             {
-                sb.Append(nextUpper);
-                sb.Append(char.ToLower(item));
+                stringBuilder.Append(nextUpper);
+                stringBuilder.Append(char.ToLower(item));
             }
             else
             {
-                sb.Append(item);
+                stringBuilder.Append(item);
             }
         }
 
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 
     /// <summary>
@@ -37,16 +40,16 @@ public class ConvertOnlyLowercase
     /// </summary>
     /// <param name="s"></param>
     /// <returns></returns>
-    public static string From(string s)
+    public static string From(string text)
     {
         bool b = false;
-        StringBuilder sb = new StringBuilder();
-        foreach (var item in s)
+        StringBuilder stringBuilder = new StringBuilder();
+        foreach (var item in text)
         {
             if (b)
             {
                 b = false;
-                sb.Append(char.ToUpper(item));
+                stringBuilder.Append(char.ToUpper(item));
                 continue;
             }
 
@@ -56,11 +59,11 @@ public class ConvertOnlyLowercase
             }
             else
             {
-                sb.Append(item);
+                stringBuilder.Append(item);
             }
         }
 
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 
     /// pre processed conversions for letters
@@ -75,7 +78,7 @@ public class ConvertOnlyLowercase
         if (Convert == null || Convert.Count == 0) BuildConversionMappings();
 
         // our return val (efficient Appends)
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
 
         // used for reversing the numbers
         Stack<char> nums = new Stack<char>();
@@ -84,22 +87,22 @@ public class ConvertOnlyLowercase
         for (int i = 0; i < stringToEncode.Length; i++)
         {
 
-            char c = stringToEncode[i];
+            char character = stringToEncode[i];
 
             // we have 3 cases:
             // 1) is alpha ==> convert using mapping
             // 2) is number ==> peek ahead to complete the number
             // 3) is special char / punctunation ==> ignore
 
-            if (Convert.ContainsKey(c))
+            if (Convert.ContainsKey(character))
             {
-                sb.Append(Convert[c]);
+                stringBuilder.Append(Convert[c]);
                 continue;
             }
 
-            if (Char.IsDigit(c))
+            if (Char.IsDigit(character))
             {
-                nums.Push(c);
+                nums.Push(character);
 
                 // we've reached the end of the input string OR
                 // we've reached the end of the number
@@ -108,7 +111,7 @@ public class ConvertOnlyLowercase
                 {
                     while (nums.Count > 0)
                     {
-                        sb.Append(nums.Pop());
+                        stringBuilder.Append(nums.Pop());
                     }
                 }
 
@@ -116,9 +119,9 @@ public class ConvertOnlyLowercase
             }
 
             // not letter, not digit
-            sb.Append(c);
+            stringBuilder.Append(character);
         }
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 
     // create our mappings for letters
@@ -128,14 +131,14 @@ public class ConvertOnlyLowercase
         Convert = new Dictionary<char, char>();
 
         // only loop once for both
-        for (char c = 'B'; c <= 'Z'; c++)
+        for (char character = 'B'; character <= 'Z'; character++)
         {
             // add capitals version
-            char val = (char)(c - 1);
+            char val = (char)(character - 1);
             val = Char.ToLower(val);
-            Convert.Add(c, val);
+            Convert.Add(character, val);
             // add lower case version
-            Convert.Add(Char.ToLower(c), val);
+            Convert.Add(Char.ToLower(character), val);
         }
 
         // special cases

@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.Converts;
 
 public class ConvertCamelConvention
@@ -8,8 +11,8 @@ public class ConvertCamelConvention
         {
             return false;
         }
-        var s = ToConvention(r);
-        return s == r;
+        var text = ToConvention(r);
+        return text == r;
     }
 
     /// <summary>

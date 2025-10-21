@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.Converts;
 
 public static class ConvertRot21
@@ -88,33 +91,33 @@ public static class ConvertRot21
 
     public static string From(string rot12)
     {
-        StringBuilder sb = new StringBuilder(rot12.Length);
+        StringBuilder stringBuilder = new StringBuilder(rot12.Length);
         foreach (char item in rot12)
         {
             foreach (var item2 in s_abc)
             {
                 if (item2.B == item)
                 {
-                    sb.Append(item2.A);
+                    stringBuilder.Append(item2.A);
                 }
             }
         }
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 
-    public static string To(string s)
+    public static string To(string text)
     {
-        StringBuilder sb = new StringBuilder(s.Length);
-        foreach (char item in s)
+        StringBuilder stringBuilder = new StringBuilder(text.Length);
+        foreach (char item in text)
         {
             foreach (var item2 in s_abc)
             {
                 if (item2.A == item)
                 {
-                    sb.Append(item2.B);
+                    stringBuilder.Append(item2.B);
                 }
             }
         }
-        return sb.ToString();
+        return stringBuilder.ToString();
     }
 }

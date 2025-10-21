@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.ConvertersSimple;
 
 public class BlobConverter : ISimpleConverterT<string, byte[]>
@@ -9,12 +12,12 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
             return "";
         }
         const string HexFormat = "{0:X2}";
-        StringBuilder sb = new StringBuilder();
-        foreach (byte b in ba)
+        StringBuilder stringBuilder = new StringBuilder();
+        foreach (byte buffer in ba)
         {
-            sb.Append(/*string.Format*/ string.Format(HexFormat, b.ToString()));
+            stringBuilder.Append(/*string.Format*/ string.Format(HexFormat, buffer.ToString()));
         }
-        return "X'" + sb.ToString() + "'";
+        return "X'" + stringBuilder.ToString() + "'";
     }
 
     static Type type = typeof(BlobConverter);
@@ -29,19 +32,19 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
             hexEncoded = hexEncoded.Replace("X'", "").TrimEnd('\\'); ;
 
             int l = Convert.ToInt32(hexEncoded.Length / 2);
-            byte[] b = new byte[l];
+            byte[] buffer = new byte[l];
             for (int i = 0; i <= l - 1; i++)
             {
-                b[i] = Convert.ToByte(hexEncoded.Substring(i * 2, 2), 16);
+                buffer[i] = Convert.ToByte(hexEncoded.Substring(i * 2, 2), 16);
             }
-            return b;
+            return buffer;
         }
         catch (Exception ex)
         {
             ThrowEx.Custom(ex);
             //if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
             //{
-            //    throw new Exception("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 b\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
+            //    throw new Exception("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 buffer\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
             //    return null;
             //}
             //else

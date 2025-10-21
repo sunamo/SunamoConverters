@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters._sunamo;
 
 internal class SH
@@ -12,8 +15,8 @@ internal class SH
             return nazevPP.ToUpper();
         }
 
-        string sb = nazevPP.Substring(1);
-        return nazevPP[0].ToString().ToUpper() + sb;
+        string text = nazevPP.Substring(1);
+        return nazevPP[0].ToString().ToUpper() + text;
     }
     #endregion
 
@@ -23,8 +26,8 @@ internal class SH
     internal static string FirstCharLower(string nazevPP)
     {
         if (nazevPP.Length < 2) return nazevPP;
-        var sb = nazevPP.Substring(1);
-        return nazevPP[0].ToString().ToLower() + sb;
+        var text = nazevPP.Substring(1);
+        return nazevPP[0].ToString().ToLower() + text;
     }
                     
 

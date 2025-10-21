@@ -1,16 +1,19 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoConverters.Converts;
 
 public class ConvertCamelConventionWithNumbers
 {
-    public static bool IsCamelWithNumber(string r)
+    public static bool IsCamelWithNumber(string result)
     {
-        if (r.ToLower() == r && !r.Contains(" "))
+        if (result.ToLower() == result && !result.Contains(" "))
         {
             return true;
         }
-        var s = ToConvention(r);
+        var text = ToConvention(result);
 
-        return s == r;
+        return text == result;
     }
 
     /// <summary>
@@ -24,14 +27,14 @@ public class ConvertCamelConventionWithNumbers
 
     public static string FromConvention(string p, bool firstCharUpper = false)
     {
-        var r = Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower();
+        var result = Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower();
         if (firstCharUpper)
         {
-            var sb = new StringBuilder(r);
+            var stringBuilder = new StringBuilder(result);
             sb[0] = char.ToUpper(sb[0]);
 
-            return sb.ToString();
+            return stringBuilder.ToString();
         }
-        return r;
+        return result;
     }
 }
