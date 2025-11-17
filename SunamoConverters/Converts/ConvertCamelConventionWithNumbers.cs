@@ -31,7 +31,7 @@ public class ConvertCamelConventionWithNumbers
         if (firstCharUpper)
         {
             var stringBuilder = new StringBuilder(result);
-            sb[0] = char.ToUpper(sb[0]);
+            stringBuilder[0] = char.ToUpper(stringBuilder[0]);
 
             return stringBuilder.ToString();
         }

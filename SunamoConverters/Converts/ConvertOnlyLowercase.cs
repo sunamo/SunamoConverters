@@ -96,7 +96,7 @@ public class ConvertOnlyLowercase
 
             if (Convert.ContainsKey(character))
             {
-                stringBuilder.Append(Convert[c]);
+                stringBuilder.Append(Convert[character]);
                 continue;
             }
 
