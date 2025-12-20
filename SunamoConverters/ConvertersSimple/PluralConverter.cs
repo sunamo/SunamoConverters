@@ -1,21 +1,18 @@
 // EN: Variable names have been checked and replaced with self-descriptive names
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
 namespace SunamoConverters.ConvertersSimple;
-
 /// <summary>
 /// Tato třída není statická jako ostatní convertery z důvodu že by se zbytečně využívali prostředky při startu aplikace, i když tuto třídu bych nakonec vůbec nevyužil.
 /// Snaž se prosím tuto třídu vytvářet jen jednou
 /// 
 /// 
 /// </summary>
-public sealed class PluralConverter : ISimpleConverter
+public sealed partial class PluralConverter : ISimpleConverter
 {
     /// <summary>
     /// Store irregular plurals in a dictionary
     /// </summary>
     private static Dictionary<string, string> s_dictionary = new Dictionary<string, string>();
-
-    #region Constructors
     /// <summary>
     /// Run initialization on this singleton class
     /// </summary>
@@ -140,15 +137,13 @@ public sealed class PluralConverter : ISimpleConverter
             s_dictionary.Add("yen", "yen");
         }
     }
-    #endregion //Constructors
 
-    #region Methods
     /// <summary>
     /// Call this method to get the properly pluralized 
     /// English version of the word.
     /// </summary>
-    /// <param name="word">The word needing conditional pluralization.</param>
-    /// <param name="count">The number of items the word refers to.</param>
+    /// <param name = "word">The word needing conditional pluralization.</param>
+    /// <param name = "count">The number of items the word refers to.</param>
     /// <returns>The pluralized word</returns>
     public string ConvertTo(string word)
     {
@@ -161,10 +156,12 @@ public sealed class PluralConverter : ISimpleConverter
         {
             return s_dictionary[word.ToLower()];
         }
+
         if (word.Length <= 2)
         {
             return word; //not a word that can be pluralised!
         }
+
         ////1. If the word ends in a consonant plus -y, change the -y into
         /// ie and add an -s to form the plural 
         ///e.g. enemy--enemies baby--babies
@@ -189,203 +186,39 @@ public sealed class PluralConverter : ISimpleConverter
             case "wy":
             case "xy":
             case "zy":
-                {
-                    return word.Substring(0, word.Length - 1) + "ies";
-                }
+            {
+                return word.Substring(0, word.Length - 1) + "ies";
+            }
+
             case "is":
-                {
-                    return word.Substring(0, word.Length - 1) + "es";
-                }
+            {
+                return word.Substring(0, word.Length - 1) + "es";
+            }
+
             case "ch":
             case "sh":
-                {
-                    return word + "es";
-                }
+            {
+                return word + "es";
+            }
+
             default:
+            {
+                switch (word.Substring(word.Length - 1))
                 {
-                    switch (word.Substring(word.Length - 1))
+                    case "s":
+                    case "z":
+                    case "x":
                     {
-                        case "s":
-                        case "z":
-                        case "x":
-                            {
-                                return word + "es";
-                            }
-                        default:
-                            {
-                                //4. Assume add an -s to form the plural of most words.
-                                return word + "s";
-                            }
+                        return word + "es";
+                    }
+
+                    default:
+                    {
+                        //4. Assume add an -s to form the plural of most words.
+                        return word + "s";
                     }
                 }
+            }
         }
     }
-
-    /// <summary>
-    /// Call this method to get the singular 
-    /// version of a plural English word.
-    /// </summary>
-    /// <param name="word">The word to turn into a singular</param>
-    /// <returns>The singular word</returns>
-    public string ConvertFrom(string word)
-    {
-        word = word.ToLower();
-        if (s_dictionary.ContainsValue(word))
-        {
-            foreach (KeyValuePair<string, string> kvp in s_dictionary)
-            {
-                if (kvp.Value.ToLower() == word) return kvp.Key;
-            }
-        }
-        if (word.Substring(word.Length - 1) != "s")
-        {
-            return word; // not a plural word if it doesn't end in S
-        }
-        if (word.Length <= 2)
-        {
-            return word; // not a word that can be made singular if only two letters!
-        }
-        if (word.Length >= 4)
-        {
-            switch (word.Substring(word.Length - 4))
-            {
-                case "bies":
-                case "cies":
-                case "dies":
-                case "fies":
-                case "gies":
-                case "hies":
-                case "jies":
-                case "kies":
-                case "lies":
-                case "mies":
-                case "nies":
-                case "pies":
-                case "ries":
-                case "sies":
-                case "ties":
-                case "vies":
-                case "wies":
-                case "xies":
-                case "zies":
-                    {
-                        return word.Substring(0, word.Length - 3) + "y";
-                    }
-                case "ches":
-                case "shes":
-                    {
-                        return word.Substring(0, word.Length - 2);
-                    }
-            }
-        }
-
-        if (word.Length >= 3)
-        {
-            switch (word.Substring(word.Length - 3))
-            {
-                //box--boxes 
-                case "ses":
-                case "zes":
-                case "xes":
-                    {
-                        return word.Substring(0, word.Length - 2);
-                    }
-            }
-        }
-        if (word.Length >= 3)
-        {
-            switch (word.Substring(word.Length - 2))
-            {
-                case "es":
-                    {
-                        return word.Substring(0, word.Length - 1) + "is";
-                    }
-                //4. Assume add an -s to form the plural of most words.
-                default:
-                    {
-                        return word.Substring(0, word.Length - 1);
-                    }
-            }
-        }
-        return word;
-    }
-    /// <summary>
-    /// test if a word is plural
-    /// </summary>
-    /// <param name="word">word to test</param>
-    /// <returns>true if a word is plural</returns>
-    private static bool TestIsPlural(string word)
-    {
-        word = word.ToLower();
-        if (word.Length <= 2)
-        {
-            return false; // not a word that can be made singular if only two letters!
-        }
-        if (s_dictionary.ContainsValue(word.ToLower()))
-        {
-            return true; //it's definitely already a plural
-        }
-        if (word.Length >= 4)
-        {
-            switch (word.Substring(word.Length - 4))
-            {
-                case "bies":
-                case "cies":
-                case "dies":
-                case "fies":
-                case "gies":
-                case "hies":
-                case "jies":
-                case "kies":
-                case "lies":
-                case "mies":
-                case "nies":
-                case "pies":
-                case "ries":
-                case "sies":
-                case "ties":
-                case "vies":
-                case "wies":
-                case "xies":
-                case "zies":
-                case "ches":
-                case "shes":
-                    {
-                        return true;
-                    }
-            }
-        }
-
-        if (word.Length >= 3)
-        {
-            switch (word.Substring(word.Length - 3))
-            {
-                //box--boxes 
-                case "ses":
-                case "zes":
-                case "xes":
-                    {
-                        return true;
-                    }
-            }
-        }
-        if (word.Length >= 3)
-        {
-            switch (word.Substring(word.Length - 2))
-            {
-                case "es":
-                    {
-                        return true;
-                    }
-            }
-        }
-        if (word.Substring(word.Length - 1) != "s")
-        {
-            return false; // not a plural word if it doesn't end in S
-        }
-        return true;
-    }
-    #endregion
-
-
 }
