@@ -2,9 +2,9 @@ namespace SunamoConverters.Converts;
 
 public class ConvertSnakeConvention
 {
-    static string Sanitize(string t)
+    static string Sanitize(string input)
     {
-        var text = new StringBuilder(t.Replace(" ", "_").Replace("__", "_"));
+        var text = new StringBuilder(input.Replace(" ", "_").Replace("__", "_"));
         for (int i = text.Length - 1; i >= 0; i--)
         {
             var ch = text[i];
@@ -15,23 +15,23 @@ public class ConvertSnakeConvention
         }
         return text.ToString();
     }
-    public static string ToConvention(string text)
+    public static string ToConvention(string input)
     {
-        var rz = string.Concat(text.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+        var rz = string.Concat(input.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
         return Sanitize(rz);
-        if (text == null)
+        if (input == null)
         {
-            throw new ArgumentNullException(nameof(text));
+            throw new ArgumentNullException(nameof(input));
         }
-        if (text.Length < 2)
+        if (input.Length < 2)
         {
-            return text;
+            return input;
         }
         var stringBuilder = new StringBuilder();
-        stringBuilder.Append(char.ToLowerInvariant(text[0]));
-        for (int i = 1; i < text.Length; ++i)
+        stringBuilder.Append(char.ToLowerInvariant(input[0]));
+        for (int i = 1; i < input.Length; ++i)
         {
-            char character = text[i];
+            char character = input[i];
             if (char.IsUpper(character))
             {
                 stringBuilder.Append('_');

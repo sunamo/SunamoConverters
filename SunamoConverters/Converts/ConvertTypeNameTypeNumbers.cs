@@ -7,10 +7,10 @@ public class ConvertTypeNameTypeNumbers
     /// If you will be compared to obtained type, do comparing like typeof(int, string, byte) not typeof(Int32, String, Byte)
     /// Into A1 must be without "System."
     /// </summary>
-    /// <param name="idt"></param>
-    public static Type ToType(string idt)
+    /// <param name="shortName"></param>
+    public static Type ToType(string shortName)
     {
-        switch (idt)
+        switch (shortName)
         {
             case "int":
                 return typeof(int);

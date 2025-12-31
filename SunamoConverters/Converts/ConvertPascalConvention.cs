@@ -5,16 +5,16 @@ public class ConvertPascalConvention //: IConvertConvention
     /// <summary>
     /// NI
     /// </summary>
-    /// <param name="p"></param>
-    public static string FromConvention(string p)
+    /// <param name="text"></param>
+    public static string FromConvention(string text)
     {
         //ThrowEx.NotImplementedMethod();
-        return SH.FirstCharUpper(Regex.Replace(p, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m.Value[1])}").ToLower());
+        return SH.FirstCharUpper(Regex.Replace(text, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m. Value[1])}").ToLower());
     }
-    public static bool IsPascal(string r)
+    public static bool IsPascal(string text)
     {
-        var text = ToConvention(r);
-        return r == text;
+        var convertedText = ToConvention(text);
+        return text == convertedText;
     }
 
     /// <summary>
@@ -23,30 +23,30 @@ public class ConvertPascalConvention //: IConvertConvention
     /// Hello world = HelloWorld
     /// helloWorld = HelloWorld
     /// </summary>
-    /// <param name="p"></param>
-    public static string ToConvention(string p)
+    /// <param name="text"></param>
+    public static string ToConvention(string text)
     {
         StringBuilder stringBuilder = new StringBuilder();
-        bool dalsiVelke = false;
-        foreach (char item in p)
+        bool isNextCharUpperCase = false;
+        foreach (char item in text)
         {
-            if (dalsiVelke)
+            if (isNextCharUpperCase)
             {
                 if (char.IsUpper(item))
                 {
-                    dalsiVelke = false;
+                    isNextCharUpperCase = false;
                     stringBuilder.Append(item);
                     continue;
                 }
                 else if (char.IsLower(item))
                 {
-                    dalsiVelke = false;
+                    isNextCharUpperCase = false;
                     stringBuilder.Append(char.ToUpper(item));
                     continue;
                 }
                 else if (char.IsDigit(item))
                 {
-                    dalsiVelke = true;
+                    isNextCharUpperCase = true;
                     stringBuilder.Append(item);
                     continue;
                 }
@@ -69,12 +69,12 @@ public class ConvertPascalConvention //: IConvertConvention
             }
             else
             {
-                dalsiVelke = true;
+                isNextCharUpperCase = true;
             }
         }
         var result = stringBuilder.ToString().Trim();
-        StringBuilder sb2 = new StringBuilder(result);
-        sb2[0] = char.ToUpper(sb2[0]);
+        StringBuilder resultBuilder = new StringBuilder(result);
+        resultBuilder[0] = char.ToUpper(resultBuilder[0]);
         //result = SH.FirstCharUpper(result);
         return result;
     }

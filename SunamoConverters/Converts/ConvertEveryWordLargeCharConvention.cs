@@ -2,10 +2,6 @@ namespace SunamoConverters.Converts;
 
 public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
-    static Type type = typeof(ConvertEveryWordLargeCharConvention);
-
-
-
     /// <summary>
     /// hello world => Hello World
     /// Hello world => Hello World
@@ -16,26 +12,26 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
     /// hello 21world => Hello 21 World
     /// Hello21world => Hello21 World
     /// </summary>
-    /// <param name="p"></param>
-    public static string ToConvention(string p)
+    /// <param name="text"></param>
+    public static string ToConvention(string text)
     {
-        p = p.ToLower();
+        text = text.ToLower();
         StringBuilder stringBuilder = new StringBuilder();
-        bool dalsiVelke = true;
-        foreach (char item in p)
+        bool isNextCharUpperCase = true;
+        foreach (char item in text)
         {
-            if (dalsiVelke)
+            if (isNextCharUpperCase)
             {
                 if (char.IsUpper(item))
                 {
-                    dalsiVelke = false;
+                    isNextCharUpperCase = false;
                     stringBuilder.Append(' ');
                     stringBuilder.Append(item);
                     continue;
                 }
                 else if (char.IsLower(item))
                 {
-                    dalsiVelke = false;
+                    isNextCharUpperCase = false;
                     if (stringBuilder.Length != 0)
                     {
                         if (!IsSpecialChar(stringBuilder[stringBuilder.Length - 1]))
@@ -76,7 +72,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             }
             else if (char.IsDigit(item))
             {
-                dalsiVelke = true;
+                isNextCharUpperCase = true;
                 stringBuilder.Append(item);
                 continue;
             }
@@ -88,17 +84,17 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
             else
             {
                 stringBuilder.Append(' ');
-                dalsiVelke = true;
+                isNextCharUpperCase = true;
             }
         }
-        string vr = stringBuilder.ToString().Trim();
+        string result = stringBuilder.ToString().Trim();
 
-        vr = vr.Replace("  ", " "); //SHReplace.ReplaceAll(vr, " ", "");
-        return vr;
+        result = result.Replace("  ", " "); //SHReplace.ReplaceAll(result, " ", "");
+        return result;
     }
 
-    private static bool IsSpecialChar(char item)
+    private static bool IsSpecialChar(char character)
     {
-        return new List<char>(['\\', '(', ')', ']', '[', '.', '\'']).Any(d => d == item); //CAG.IsEqualToAnyElement<char>(item, );
+        return new List<char>(['\\', '(', ')', ']', '[', '.', '\'']).Any(d => d == character); //CAG.IsEqualToAnyElement<char>(item, );
     }
 }

@@ -5,10 +5,10 @@ public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
     /// <summary>
     /// A1 is full name of month in EN
     /// </summary>
-    /// <param name="s"></param>
-    public static int ToNumber(string s)
+    /// <param name="text"></param>
+    public static int ToNumber(string text)
     {
-        switch (s)
+        switch (text)
         {
             case "January":
                 return 1;
@@ -35,11 +35,9 @@ public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
             case "December":
                 return 12;
         }
-        throw new Exception("\u0160patn\u00FD anglick\u00FD n\u00E1zev m\u011Bs\u00EDce " + s + " metod\u011B ConvertMonthNumberString.ToNumber()");
+        throw new Exception("\u0160patn\u00FD anglick\u00FD n\u00E1zev m\u011Bs\u00EDce " + text + " metod\u011B ConvertMonthNumberString.ToNumber()");
         return 0;
     }
-
-    static Type type = typeof(ConvertMonthNumberStringNotTranslateAble);
 
     public static string ToString(int number)
     {

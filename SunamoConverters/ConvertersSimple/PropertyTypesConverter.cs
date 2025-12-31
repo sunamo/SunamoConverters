@@ -2,9 +2,7 @@ namespace SunamoConverters.ConvertersSimple;
 
 public class PropertyTypesConverter : ISimpleConverterT<PropertyTypes, string>
 {
-    static Type type = typeof(PropertyTypesConverter);
-
-    public PropertyTypes ConvertTo(string u)
+    public PropertyTypes ConvertTo(string text)
     {
         ThrowEx.NotImplementedMethod();
         return PropertyTypes.Bool;
@@ -13,10 +11,10 @@ public class PropertyTypesConverter : ISimpleConverterT<PropertyTypes, string>
     /// <summary>
     /// Dont implement all, see usage in other code
     /// </summary>
-    /// <param name="t"></param>
-    public string ConvertFrom(PropertyTypes t)
+    /// <param name="propertyType"></param>
+    public string ConvertFrom(PropertyTypes propertyType)
     {
-        switch (t)
+        switch (propertyType)
         {
             case PropertyTypes.ULong:
                 return "System.UInt64";

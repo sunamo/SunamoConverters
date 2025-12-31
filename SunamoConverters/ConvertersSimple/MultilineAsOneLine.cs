@@ -2,17 +2,17 @@ namespace SunamoConverters.ConvertersSimple;
 
 public class MultilineAsOneLine
 {
-    public const string r = "\r";
-    public const string n = "\n";
-    public const string rr = "\\r";
+    public const string R = "\r";
+    public const string N = "\n";
+    public const string RR = "\\r";
 
-    public static string ConvertTo(string i)
+    public static string ConvertTo(string input)
     {
-        return i.Replace(n, string.Empty).Replace(r, rr);
+        return input.Replace(N, string.Empty).Replace(R, RR);
     }
 
-    public static string ConvertFrom(string f)
+    public static string ConvertFrom(string input)
     {
-        return f.Replace(rr, r);
+        return input.Replace(RR, R);
     }
 }

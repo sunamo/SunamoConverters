@@ -2,7 +2,7 @@ namespace SunamoConverters.Converts;
 
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {
-    const string systemDot = "System.";
+    const string SystemDot = "System.";
     public static string FromShortcut(string shortcut)
     {
         switch (shortcut)
@@ -50,11 +50,11 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         return ToShortcut(fullName, true);
     }
     /// <param name="fullName"></param>
-    public static string ToShortcut(string fullName, bool throwExceptionWhenNotBasicType)
+    public static string ToShortcut(string fullName, bool isThrowingExceptionWhenNotBasicType)
     {
-        if (!fullName.StartsWith(systemDot))
+        if (!fullName.StartsWith(SystemDot))
         {
-            fullName = systemDot + fullName;
+            fullName = SystemDot + fullName;
         }
         switch (fullName)
         {
@@ -91,12 +91,11 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
                 return "ulong";
                 #endregion
         }
-        if (throwExceptionWhenNotBasicType)
+        if (isThrowingExceptionWhenNotBasicType)
         {
             throw new Exception("Nepodporovan\u00FD typ");
             return null;
         }
         return fullName;
     }
-    static Type type = typeof(ConvertTypeShortcutFullName);
 }

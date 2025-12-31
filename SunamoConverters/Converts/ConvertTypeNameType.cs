@@ -74,6 +74,4 @@ public class ConvertTypeNameType
         throw new Exception("Nepodporovan\u00FD typ");
         return null;
     }
-
-    static Type type = typeof(ConvertTypeNameType);
 }

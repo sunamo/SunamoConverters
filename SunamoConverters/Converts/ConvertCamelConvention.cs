@@ -2,22 +2,22 @@ namespace SunamoConverters.Converts;
 
 public class ConvertCamelConvention
 {
-    public static bool IsCamel(string r)
+    public static bool IsCamel(string text)
     {
-        if (r.ToLower() == r)
+        if (text.ToLower() == text)
         {
             return false;
         }
-        var text = ToConvention(r);
-        return text == r;
+        var convertedText = ToConvention(text);
+        return convertedText == text;
     }
 
     /// <summary>
     /// will include numbers
     /// </summary>
-    /// <param name="p"></param>
-    public static string ToConvention(string p)
+    /// <param name="text"></param>
+    public static string ToConvention(string text)
     {
-        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(p));
+        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(text));
     }
 }

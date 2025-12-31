@@ -86,10 +86,10 @@ public static class ConvertRot21
         s_abc.Add(new ABT<char, char>('~', 'A'));
     }
 
-    public static string From(string rot12)
+    public static string From(string text)
     {
-        StringBuilder stringBuilder = new StringBuilder(rot12.Length);
-        foreach (char item in rot12)
+        StringBuilder stringBuilder = new StringBuilder(text.Length);
+        foreach (char item in text)
         {
             foreach (var item2 in s_abc)
             {

@@ -2,7 +2,6 @@ namespace SunamoConverters.Converts;
 
 public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertShortcutFullName
 {
-    static Type type = typeof(ConvertMonthShortcutFullNameNotTranslateAble);
     public static string FromShortcut(string shortcut)
     {
         switch (shortcut)

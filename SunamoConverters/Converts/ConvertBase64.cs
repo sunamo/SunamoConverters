@@ -11,7 +11,7 @@ public class ConvertBase64
     public static string From(string base64EncodedData)
     {
         var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
-        string r = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-        return r;
+        string result = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        return result;
     }
 }

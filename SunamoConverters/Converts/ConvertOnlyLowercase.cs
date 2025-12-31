@@ -6,12 +6,12 @@ public class ConvertOnlyLowercase
     /// % - HTTP Error 400. The request URL is invalid.
     /// * - potentionally dangerous
     /// </summary>
-    public static char nextUpper = '$';
+    public static char NextUpper = '$';
 
     /// <summary>
     /// Pokud je velké písmeno, vloží místo něj $ a malé
     /// </summary>
-    /// <param name="s"></param>
+    /// <param name="text"></param>
     /// <returns></returns>
     public static string To(string text)
     {
@@ -20,7 +20,7 @@ public class ConvertOnlyLowercase
         {
             if (char.IsUpper(item))
             {
-                stringBuilder.Append(nextUpper);
+                stringBuilder.Append(NextUpper);
                 stringBuilder.Append(char.ToLower(item));
             }
             else
@@ -35,24 +35,24 @@ public class ConvertOnlyLowercase
     /// <summary>
     /// Pokud je znak $ další bude upper
     /// </summary>
-    /// <param name="s"></param>
+    /// <param name="text"></param>
     /// <returns></returns>
     public static string From(string text)
     {
-        bool b = false;
+        bool isNextCharUpper = false;
         StringBuilder stringBuilder = new StringBuilder();
         foreach (var item in text)
         {
-            if (b)
+            if (isNextCharUpper)
             {
-                b = false;
+                isNextCharUpper = false;
                 stringBuilder.Append(char.ToUpper(item));
                 continue;
             }
 
-            if (item == nextUpper)
+            if (item == NextUpper)
             {
-                b = true;
+                isNextCharUpper = true;
             }
             else
             {
@@ -64,15 +64,15 @@ public class ConvertOnlyLowercase
     }
 
     /// pre processed conversions for letters
-    private static Dictionary<char, char> Convert;
+    private static Dictionary<char, char> ConversionMap;
 
-    public static string encode(string stringToEncode)
+    public static string Encode(string text)
     {
 
         // approach: pre process a mapping (dictionary) for letter conversions
         // use a Dict for fastest look ups.  The first run, will take a little
         // extra time, subsequent usage will perform even better
-        if (Convert == null || Convert.Count == 0) BuildConversionMappings();
+        if (ConversionMap == null || ConversionMap.Count == 0) BuildConversionMappings();
 
         // our return val (efficient Appends)
         StringBuilder stringBuilder = new StringBuilder();
@@ -81,19 +81,19 @@ public class ConvertOnlyLowercase
         Stack<char> nums = new Stack<char>();
 
         // iterate the input string
-        for (int i = 0; i < stringToEncode.Length; i++)
+        for (int i = 0; i < text.Length; i++)
         {
 
-            char character = stringToEncode[i];
+            char character = text[i];
 
             // we have 3 cases:
             // 1) is alpha ==> convert using mapping
             // 2) is number ==> peek ahead to complete the number
             // 3) is special char / punctunation ==> ignore
 
-            if (Convert.ContainsKey(character))
+            if (ConversionMap.ContainsKey(character))
             {
-                stringBuilder.Append(Convert[character]);
+                stringBuilder.Append(ConversionMap[character]);
                 continue;
             }
 
@@ -103,8 +103,8 @@ public class ConvertOnlyLowercase
 
                 // we've reached the end of the input string OR
                 // we've reached the end of the number
-                if (i == stringToEncode.Length - 1
-                || !Char.IsDigit(stringToEncode[i + 1]))
+                if (i == text.Length - 1
+                || !Char.IsDigit(text[i + 1]))
                 {
                     while (nums.Count > 0)
                     {
@@ -125,7 +125,7 @@ public class ConvertOnlyLowercase
     private static void BuildConversionMappings()
     {
 
-        Convert = new Dictionary<char, char>();
+        ConversionMap = new Dictionary<char, char>();
 
         // only loop once for both
         for (char character = 'B'; character <= 'Z'; character++)
@@ -133,15 +133,15 @@ public class ConvertOnlyLowercase
             // add capitals version
             char val = (char)(character - 1);
             val = Char.ToLower(val);
-            Convert.Add(character, val);
+            ConversionMap.Add(character, val);
             // add lower case version
-            Convert.Add(Char.ToLower(character), val);
+            ConversionMap.Add(Char.ToLower(character), val);
         }
 
         // special cases
-        Convert['y'] = ' ';
-        Convert['Y'] = ' ';
-        Convert.Add(' ', 'y');
+        ConversionMap['y'] = ' ';
+        ConversionMap['Y'] = ' ';
+        ConversionMap.Add(' ', 'y');
 
         // vowels
         char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
@@ -149,8 +149,8 @@ public class ConvertOnlyLowercase
         {
             var letter = vowels[i];
             var value = (i + 1).ToString()[0];
-            Convert[letter] = value;
-            Convert[Char.ToUpper(letter)] = value;
+            ConversionMap[letter] = value;
+            ConversionMap[Char.ToUpper(letter)] = value;
         }
     }
 }

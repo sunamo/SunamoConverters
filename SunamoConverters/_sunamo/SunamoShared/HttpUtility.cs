@@ -6,8 +6,8 @@ namespace SunamoConverters._sunamo.SunamoShared;
 /// </summary>
 internal class HttpUtility //: SunamoExceptions.InSunamoIsDerivedFrom.HttpUtility
 {
-    internal static NameValueCollection ParseQueryString(string responseContent)
+    internal static NameValueCollection ParseQueryString(string queryString)
     {
-        return HttpUtility.ParseQueryString(responseContent);
+        return HttpUtility.ParseQueryString(queryString);
     }
 }

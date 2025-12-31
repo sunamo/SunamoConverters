@@ -2,14 +2,12 @@ namespace SunamoConverters.Converts;
 
 public class ConvertDayShortcutString
 {
-    static Type type = typeof(ConvertDayShortcutString);
-
     public static int ToNumber(string text)
     {
         var stringBuilder = new StringBuilder(text.ToLower());
         stringBuilder[0] = char.ToUpper(stringBuilder[0]);
 
-        var dx = DTConstants.daysInWeekENShortcut.IndexOf(stringBuilder.ToString());
+        var dx = DTConstants.DaysInWeekENShortcut.IndexOf(stringBuilder.ToString());
         if (dx != -1)
         {
             return dx;
@@ -18,9 +16,9 @@ public class ConvertDayShortcutString
         return -1;
     }
 
-    public static string ToString(int number)
+    public static string ToString(int day)
     {
-        switch (number)
+        switch (day)
         {
             case 0:
                 return "Jan";
@@ -37,7 +35,7 @@ public class ConvertDayShortcutString
             case 6:
                 return "Sun";
             default:
-                ThrowEx.NotImplementedCase(number);
+                ThrowEx.NotImplementedCase(day);
                 break;
         }
         return null;

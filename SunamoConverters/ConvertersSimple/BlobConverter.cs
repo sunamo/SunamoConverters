@@ -2,37 +2,36 @@ namespace SunamoConverters.ConvertersSimple;
 
 public class BlobConverter : ISimpleConverterT<string, byte[]>
 {
-    public string ConvertTo(byte[] ba)
+    public string ConvertTo(byte[] value)
     {
-        if (ba == null || ba.Length == 0)
+        if (value == null || value.Length == 0)
         {
             return "";
         }
         const string HexFormat = "{0:X2}";
         StringBuilder stringBuilder = new StringBuilder();
-        foreach (byte buffer in ba)
+        foreach (byte buffer in value)
         {
             stringBuilder.Append(/*string.Format*/ string.Format(HexFormat, buffer.ToString()));
         }
         return "X'" + stringBuilder.ToString() + "'";
     }
 
-    static Type type = typeof(BlobConverter);
-    public byte[] ConvertFrom(string hexEncoded)
+    public byte[] ConvertFrom(string value)
     {
-        if (hexEncoded == null || hexEncoded.Length == 0)
+        if (value == null || value.Length == 0)
         {
             return null;
         }
         try
         {
-            hexEncoded = hexEncoded.Replace("X'", "").TrimEnd('\\'); ;
+            value = value.Replace("X'", "").TrimEnd('\\'); ;
 
-            int l = Convert.ToInt32(hexEncoded.Length / 2);
-            byte[] buffer = new byte[l];
-            for (int i = 0; i <= l - 1; i++)
+            int byteCount = Convert.ToInt32(value.Length / 2);
+            byte[] buffer = new byte[byteCount];
+            for (int i = 0; i <= byteCount - 1; i++)
             {
-                buffer[i] = Convert.ToByte(hexEncoded.Substring(i * 2, 2), 16);
+                buffer[i] = Convert.ToByte(value.Substring(i * 2, 2), 16);
             }
             return buffer;
         }
@@ -46,11 +45,11 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
             //}
             //else
             //{
-            throw new Exception(xTheProvidedStringDoesNotAppearToBeHexEncoded + ":" + hexEncoded);
+            throw new Exception(XTheProvidedStringDoesNotAppearToBeHexEncoded + ":" + value);
             return null;
             //}
         }
     }
 
-    public static string xTheProvidedStringDoesNotAppearToBeHexEncoded = "TheProvidedStringDoesNotAppearToBeHexEncoded";
+    public static string XTheProvidedStringDoesNotAppearToBeHexEncoded = "TheProvidedStringDoesNotAppearToBeHexEncoded";
 }

@@ -1,3 +1,4 @@
+// variables names: ok
 namespace RunnerConverters;
 
 internal class Program
