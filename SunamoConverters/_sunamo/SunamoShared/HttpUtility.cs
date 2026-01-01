@@ -1,10 +1,10 @@
 namespace SunamoConverters._sunamo.SunamoShared;
 
 /// <summary>
-///     Není ve sunamo, tím pádem nebudu dávat do NS
-///     Třída byla vytvořena abych nemusel importovat System.Web pro metody jež nejsou v WebUtility
+/// Not in sunamo, therefore will not be placed in NS namespace.
+/// This class was created to avoid importing System.Web for methods that are not in WebUtility.
 /// </summary>
-internal class HttpUtility //: SunamoExceptions.InSunamoIsDerivedFrom.HttpUtility
+internal class HttpUtility
 {
     internal static NameValueCollection ParseQueryString(string queryString)
     {

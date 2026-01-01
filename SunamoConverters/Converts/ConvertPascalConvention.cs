@@ -1,16 +1,25 @@
 namespace SunamoConverters.Converts;
 
-public class ConvertPascalConvention //: IConvertConvention
+/// <summary>
+/// Converts text to and from Pascal case convention (EachWordStartsWithCapital).
+/// </summary>
+public class ConvertPascalConvention
 {
     /// <summary>
-    /// NI
+    /// Converts text from Pascal case to separate words.
     /// </summary>
-    /// <param name="text"></param>
+    /// <param name="text">The Pascal case text to convert.</param>
+    /// <returns>The text with words separated by spaces.</returns>
     public static string FromConvention(string text)
     {
-        //ThrowEx.NotImplementedMethod();
-        return SH.FirstCharUpper(Regex.Replace(text, "[a-z][A-Z]", m => $"{m.Value[0]} {char.ToLower(m. Value[1])}").ToLower());
+        return SH.FirstCharUpper(Regex.Replace(text, "[a-z][A-Z]", match => $"{match.Value[0]} {char.ToLower(match.Value[1])}").ToLower());
     }
+
+    /// <summary>
+    /// Checks if the text is in Pascal case format.
+    /// </summary>
+    /// <param name="text">The text to check.</param>
+    /// <returns>True if the text is in Pascal case, false otherwise.</returns>
     public static bool IsPascal(string text)
     {
         var convertedText = ToConvention(text);
@@ -18,36 +27,38 @@ public class ConvertPascalConvention //: IConvertConvention
     }
 
     /// <summary>
-    /// Will include numbers
-    /// hello world = HelloWorld
-    /// Hello world = HelloWorld
-    /// helloWorld = HelloWorld
+    /// Converts text to Pascal case convention (includes numbers).
+    /// Examples:
+    /// - "hello world" → "HelloWorld"
+    /// - "Hello world" → "HelloWorld"
+    /// - "helloWorld" → "HelloWorld"
     /// </summary>
-    /// <param name="text"></param>
+    /// <param name="text">The text to convert.</param>
+    /// <returns>The text converted to Pascal case.</returns>
     public static string ToConvention(string text)
     {
         StringBuilder stringBuilder = new StringBuilder();
         bool isNextCharUpperCase = false;
-        foreach (char item in text)
+        foreach (char character in text)
         {
             if (isNextCharUpperCase)
             {
-                if (char.IsUpper(item))
+                if (char.IsUpper(character))
                 {
                     isNextCharUpperCase = false;
-                    stringBuilder.Append(item);
+                    stringBuilder.Append(character);
                     continue;
                 }
-                else if (char.IsLower(item))
+                else if (char.IsLower(character))
                 {
                     isNextCharUpperCase = false;
-                    stringBuilder.Append(char.ToUpper(item));
+                    stringBuilder.Append(char.ToUpper(character));
                     continue;
                 }
-                else if (char.IsDigit(item))
+                else if (char.IsDigit(character))
                 {
                     isNextCharUpperCase = true;
-                    stringBuilder.Append(item);
+                    stringBuilder.Append(character);
                     continue;
                 }
                 else
@@ -55,17 +66,17 @@ public class ConvertPascalConvention //: IConvertConvention
                     continue;
                 }
             }
-            if (char.IsUpper(item))
+            if (char.IsUpper(character))
             {
-                stringBuilder.Append(item);
+                stringBuilder.Append(character);
             }
-            else if (char.IsLower(item))
+            else if (char.IsLower(character))
             {
-                stringBuilder.Append(item);
+                stringBuilder.Append(character);
             }
-            else if (char.IsDigit(item))
+            else if (char.IsDigit(character))
             {
-                stringBuilder.Append(item);
+                stringBuilder.Append(character);
             }
             else
             {
@@ -73,9 +84,12 @@ public class ConvertPascalConvention //: IConvertConvention
             }
         }
         var result = stringBuilder.ToString().Trim();
-        StringBuilder resultBuilder = new StringBuilder(result);
-        resultBuilder[0] = char.ToUpper(resultBuilder[0]);
-        //result = SH.FirstCharUpper(result);
+        if (result.Length > 0)
+        {
+            StringBuilder resultBuilder = new StringBuilder(result);
+            resultBuilder[0] = char.ToUpper(resultBuilder[0]);
+            return resultBuilder.ToString();
+        }
         return result;
     }
 }

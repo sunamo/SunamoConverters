@@ -1,11 +1,16 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts between English month names and numeric representations (1-12).
+/// </summary>
 public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
 {
     /// <summary>
-    /// A1 is full name of month in EN
+    /// Converts a full English month name to its numeric representation (1-12).
     /// </summary>
-    /// <param name="text"></param>
+    /// <param name="text">The full English name of the month (e.g., "January").</param>
+    /// <returns>The numeric representation of the month (1-12).</returns>
+    /// <exception cref="Exception">Thrown when the month name is not recognized.</exception>
     public static int ToNumber(string text)
     {
         switch (text)
@@ -35,11 +40,15 @@ public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
             case "December":
                 return 12;
         }
-        throw new Exception("\u0160patn\u00FD anglick\u00FD n\u00E1zev m\u011Bs\u00EDce " + text + " metod\u011B ConvertMonthNumberString.ToNumber()");
-        return 0;
+        throw new Exception($"Invalid English month name '{text}' in ConvertMonthNumberString.ToNumber()");
     }
 
-    public static string ToString(int number)
+    /// <summary>
+    /// Converts a month number (1-12) to its full English name.
+    /// </summary>
+    /// <param name="number">The month number (1-12).</param>
+    /// <returns>The full English name of the month, or null if the number is invalid.</returns>
+    public static string? ToString(int number)
     {
         switch (number)
         {

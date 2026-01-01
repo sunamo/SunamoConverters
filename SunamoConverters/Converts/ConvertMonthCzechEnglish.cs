@@ -1,8 +1,16 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts month names between Czech and English.
+/// </summary>
 public class ConvertMonthCzechEnglish //: IConvertCzechEnglish
 {
-    public static string ToCzech(string english)
+    /// <summary>
+    /// Converts an English month name to Czech.
+    /// </summary>
+    /// <param name="english">The English month name.</param>
+    /// <returns>The Czech month name, or null if not found.</returns>
+    public static string? ToCzech(string english)
     {
         switch (english)
         {
@@ -36,7 +44,12 @@ public class ConvertMonthCzechEnglish //: IConvertCzechEnglish
         return null;
     }
 
-    public static string ToEnglish(string czech)
+    /// <summary>
+    /// Converts a Czech month name to English.
+    /// </summary>
+    /// <param name="czech">The Czech month name.</param>
+    /// <returns>The English month name, or null if not found.</returns>
+    public static string? ToEnglish(string czech)
     {
         switch (czech)
         {

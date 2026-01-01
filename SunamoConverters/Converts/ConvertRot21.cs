@@ -1,117 +1,131 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Provides methods for ROT21 character substitution cipher encoding and decoding.
+/// </summary>
 public static class ConvertRot21
 {
     /// <summary>
-    /// In key is all chars which can occured in nick
-    /// Ïn value is the same chars, just swaped
+    /// Mapping of characters for ROT21 encoding/decoding.
+    /// Key contains all characters that can occur in the input.
+    /// Value contains the same characters, but swapped for encoding.
     /// </summary>
-    private static List<ABT<char, char>> s_abc = new List<ABT<char, char>>();
+    private static List<ABT<char, char>> alphabet = new List<ABT<char, char>>();
 
 
     static ConvertRot21()
     {
-        s_abc.Add(new ABT<char, char>('1', 'F'));
-        s_abc.Add(new ABT<char, char>('2', 'c'));
-        s_abc.Add(new ABT<char, char>('3', 'G'));
-        s_abc.Add(new ABT<char, char>('4', 'D'));
-        s_abc.Add(new ABT<char, char>('5', 'J'));
-        s_abc.Add(new ABT<char, char>('6', 'w'));
-        s_abc.Add(new ABT<char, char>('7', 'L'));
-        s_abc.Add(new ABT<char, char>('8', 'Y'));
-        s_abc.Add(new ABT<char, char>('9', 'W'));
-        s_abc.Add(new ABT<char, char>('0', 'C'));
-        s_abc.Add(new ABT<char, char>('a', 'Q'));
-        s_abc.Add(new ABT<char, char>('b', 't'));
-        s_abc.Add(new ABT<char, char>('c', 'd'));
-        s_abc.Add(new ABT<char, char>('d', 'i'));
-        s_abc.Add(new ABT<char, char>('e', '0'));
-        s_abc.Add(new ABT<char, char>('f', '*'));
-        s_abc.Add(new ABT<char, char>('g', 'T'));
-        s_abc.Add(new ABT<char, char>('h', 'h'));
-        s_abc.Add(new ABT<char, char>('i', '2'));
-        s_abc.Add(new ABT<char, char>('j', '7'));
-        s_abc.Add(new ABT<char, char>('k', 'n'));
-        s_abc.Add(new ABT<char, char>('l', 'l'));
-        s_abc.Add(new ABT<char, char>('m', 'p'));
-        s_abc.Add(new ABT<char, char>('n', '~'));
-        s_abc.Add(new ABT<char, char>('o', 'u'));
-        s_abc.Add(new ABT<char, char>('p', 'g'));
-        s_abc.Add(new ABT<char, char>('q', 'M'));
-        s_abc.Add(new ABT<char, char>('r', 'S'));
-        s_abc.Add(new ABT<char, char>('s', 'K'));
-        s_abc.Add(new ABT<char, char>('t', '8'));
-        s_abc.Add(new ABT<char, char>('u', 'O'));
-        s_abc.Add(new ABT<char, char>('v', 'v'));
-        s_abc.Add(new ABT<char, char>('w', '6'));
-        s_abc.Add(new ABT<char, char>('x', 'x'));
-        s_abc.Add(new ABT<char, char>('y', 'B'));
-        s_abc.Add(new ABT<char, char>('z', 'm'));
-        s_abc.Add(new ABT<char, char>('A', 'E'));
-        s_abc.Add(new ABT<char, char>('B', 'Z'));
-        s_abc.Add(new ABT<char, char>('C', 'f'));
-        s_abc.Add(new ABT<char, char>('D', 'V'));
-        s_abc.Add(new ABT<char, char>('E', 'a'));
-        s_abc.Add(new ABT<char, char>('F', 'H'));
-        s_abc.Add(new ABT<char, char>('G', '^'));
-        s_abc.Add(new ABT<char, char>('H', '!'));
-        s_abc.Add(new ABT<char, char>('I', '&'));
-        s_abc.Add(new ABT<char, char>('J', '5'));
-        s_abc.Add(new ABT<char, char>('K', '$'));
-        s_abc.Add(new ABT<char, char>('L', 'N'));
-        s_abc.Add(new ABT<char, char>('M', '@'));
-        s_abc.Add(new ABT<char, char>('N', 's'));
-        s_abc.Add(new ABT<char, char>('O', 'e'));
-        s_abc.Add(new ABT<char, char>('P', 'P'));
-        s_abc.Add(new ABT<char, char>('Q', 'j'));
-        s_abc.Add(new ABT<char, char>('R', '9'));
-        s_abc.Add(new ABT<char, char>('S', '#'));
-        s_abc.Add(new ABT<char, char>('T', 'z'));
-        s_abc.Add(new ABT<char, char>('U', 'U'));
-        s_abc.Add(new ABT<char, char>('V', 'I'));
-        s_abc.Add(new ABT<char, char>('W', 'r'));
-        s_abc.Add(new ABT<char, char>('X', '4'));
-        s_abc.Add(new ABT<char, char>('Y', 'k'));
-        s_abc.Add(new ABT<char, char>('Z', 'y'));
-        s_abc.Add(new ABT<char, char>('!', 'X'));
-        s_abc.Add(new ABT<char, char>('@', 'q'));
-        s_abc.Add(new ABT<char, char>('#', '%'));
-        s_abc.Add(new ABT<char, char>('$', '1'));
-        s_abc.Add(new ABT<char, char>('%', '?'));
-        s_abc.Add(new ABT<char, char>('^', 'b'));
-        s_abc.Add(new ABT<char, char>('&', 'o'));
-        s_abc.Add(new ABT<char, char>('*', '_'));
-        s_abc.Add(new ABT<char, char>('?', 'R'));
-        s_abc.Add(new ABT<char, char>('_', '3'));
-        s_abc.Add(new ABT<char, char>('~', 'A'));
+        alphabet.Add(new ABT<char, char>('1', 'F'));
+        alphabet.Add(new ABT<char, char>('2', 'c'));
+        alphabet.Add(new ABT<char, char>('3', 'G'));
+        alphabet.Add(new ABT<char, char>('4', 'D'));
+        alphabet.Add(new ABT<char, char>('5', 'J'));
+        alphabet.Add(new ABT<char, char>('6', 'w'));
+        alphabet.Add(new ABT<char, char>('7', 'L'));
+        alphabet.Add(new ABT<char, char>('8', 'Y'));
+        alphabet.Add(new ABT<char, char>('9', 'W'));
+        alphabet.Add(new ABT<char, char>('0', 'C'));
+        alphabet.Add(new ABT<char, char>('a', 'Q'));
+        alphabet.Add(new ABT<char, char>('b', 't'));
+        alphabet.Add(new ABT<char, char>('c', 'd'));
+        alphabet.Add(new ABT<char, char>('d', 'i'));
+        alphabet.Add(new ABT<char, char>('e', '0'));
+        alphabet.Add(new ABT<char, char>('f', '*'));
+        alphabet.Add(new ABT<char, char>('g', 'T'));
+        alphabet.Add(new ABT<char, char>('h', 'h'));
+        alphabet.Add(new ABT<char, char>('i', '2'));
+        alphabet.Add(new ABT<char, char>('j', '7'));
+        alphabet.Add(new ABT<char, char>('k', 'n'));
+        alphabet.Add(new ABT<char, char>('l', 'l'));
+        alphabet.Add(new ABT<char, char>('m', 'p'));
+        alphabet.Add(new ABT<char, char>('n', '~'));
+        alphabet.Add(new ABT<char, char>('o', 'u'));
+        alphabet.Add(new ABT<char, char>('p', 'g'));
+        alphabet.Add(new ABT<char, char>('q', 'M'));
+        alphabet.Add(new ABT<char, char>('r', 'S'));
+        alphabet.Add(new ABT<char, char>('s', 'K'));
+        alphabet.Add(new ABT<char, char>('t', '8'));
+        alphabet.Add(new ABT<char, char>('u', 'O'));
+        alphabet.Add(new ABT<char, char>('v', 'v'));
+        alphabet.Add(new ABT<char, char>('w', '6'));
+        alphabet.Add(new ABT<char, char>('x', 'x'));
+        alphabet.Add(new ABT<char, char>('y', 'B'));
+        alphabet.Add(new ABT<char, char>('z', 'm'));
+        alphabet.Add(new ABT<char, char>('A', 'E'));
+        alphabet.Add(new ABT<char, char>('B', 'Z'));
+        alphabet.Add(new ABT<char, char>('C', 'f'));
+        alphabet.Add(new ABT<char, char>('D', 'V'));
+        alphabet.Add(new ABT<char, char>('E', 'a'));
+        alphabet.Add(new ABT<char, char>('F', 'H'));
+        alphabet.Add(new ABT<char, char>('G', '^'));
+        alphabet.Add(new ABT<char, char>('H', '!'));
+        alphabet.Add(new ABT<char, char>('I', '&'));
+        alphabet.Add(new ABT<char, char>('J', '5'));
+        alphabet.Add(new ABT<char, char>('K', '$'));
+        alphabet.Add(new ABT<char, char>('L', 'N'));
+        alphabet.Add(new ABT<char, char>('M', '@'));
+        alphabet.Add(new ABT<char, char>('N', 's'));
+        alphabet.Add(new ABT<char, char>('O', 'e'));
+        alphabet.Add(new ABT<char, char>('P', 'P'));
+        alphabet.Add(new ABT<char, char>('Q', 'j'));
+        alphabet.Add(new ABT<char, char>('R', '9'));
+        alphabet.Add(new ABT<char, char>('S', '#'));
+        alphabet.Add(new ABT<char, char>('T', 'z'));
+        alphabet.Add(new ABT<char, char>('U', 'U'));
+        alphabet.Add(new ABT<char, char>('V', 'I'));
+        alphabet.Add(new ABT<char, char>('W', 'r'));
+        alphabet.Add(new ABT<char, char>('X', '4'));
+        alphabet.Add(new ABT<char, char>('Y', 'k'));
+        alphabet.Add(new ABT<char, char>('Z', 'y'));
+        alphabet.Add(new ABT<char, char>('!', 'X'));
+        alphabet.Add(new ABT<char, char>('@', 'q'));
+        alphabet.Add(new ABT<char, char>('#', '%'));
+        alphabet.Add(new ABT<char, char>('$', '1'));
+        alphabet.Add(new ABT<char, char>('%', '?'));
+        alphabet.Add(new ABT<char, char>('^', 'b'));
+        alphabet.Add(new ABT<char, char>('&', 'o'));
+        alphabet.Add(new ABT<char, char>('*', '_'));
+        alphabet.Add(new ABT<char, char>('?', 'R'));
+        alphabet.Add(new ABT<char, char>('_', '3'));
+        alphabet.Add(new ABT<char, char>('~', 'A'));
     }
 
+    /// <summary>
+    /// Decodes a ROT21-encoded string.
+    /// </summary>
+    /// <param name="text">The encoded text.</param>
+    /// <returns>The decoded text.</returns>
     public static string From(string text)
     {
         StringBuilder stringBuilder = new StringBuilder(text.Length);
         foreach (char item in text)
         {
-            foreach (var item2 in s_abc)
+            foreach (var mapping in alphabet)
             {
-                if (item2.B == item)
+                if (mapping.B == item)
                 {
-                    stringBuilder.Append(item2.A);
+                    stringBuilder.Append(mapping.A);
                 }
             }
         }
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Encodes a string using ROT21 encoding.
+    /// </summary>
+    /// <param name="text">The text to encode.</param>
+    /// <returns>The encoded text.</returns>
     public static string To(string text)
     {
         StringBuilder stringBuilder = new StringBuilder(text.Length);
         foreach (char item in text)
         {
-            foreach (var item2 in s_abc)
+            foreach (var mapping in alphabet)
             {
-                if (item2.A == item)
+                if (mapping.A == item)
                 {
-                    stringBuilder.Append(item2.B);
+                    stringBuilder.Append(mapping.B);
                 }
             }
         }

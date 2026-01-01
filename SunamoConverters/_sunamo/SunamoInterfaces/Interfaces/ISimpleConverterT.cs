@@ -1,7 +1,7 @@
 namespace SunamoConverters._sunamo.SunamoInterfaces.Interfaces;
 
-internal interface ISimpleConverterT<TypeInClassName, U>
+internal interface ISimpleConverterT<TOutput, TInput>
 {
-    TypeInClassName ConvertTo(U value);
-    U ConvertFrom(TypeInClassName value);
+    TOutput ConvertTo(TInput value);
+    TInput? ConvertFrom(TOutput value);
 }

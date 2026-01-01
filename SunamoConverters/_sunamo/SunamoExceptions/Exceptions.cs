@@ -53,14 +53,14 @@ bool fillAlsoFirstTwo = true)
         }
         return new Tuple<string, string, string>(type, methodName, string.Join(Environment.NewLine, lines));
     }
-    internal static void TypeAndMethodName(string lines, out string type, out string methodName)
+    internal static void TypeAndMethodName(string stackTraceLine, out string type, out string methodName)
     {
-        var s2 = lines.Split("at ")[1].Trim();
-        var text = s2.Split("(")[0];
-        var parameter = text.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-        methodName = parameter[^1];
-        parameter.RemoveAt(parameter.Count - 1);
-        type = string.Join(".", parameter);
+        var trimmedLine = stackTraceLine.Split("at ")[1].Trim();
+        var fullMethodPath = trimmedLine.Split("(")[0];
+        var pathParts = fullMethodPath.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+        methodName = pathParts[^1];
+        pathParts.RemoveAt(pathParts.Count - 1);
+        type = string.Join(".", pathParts);
     }
     internal static string CallingMethod(int value = 1)
     {
@@ -97,16 +97,16 @@ bool fillAlsoFirstTwo = true)
     #endregion
     internal static string? NotImplementedCase(string before, object notImplementedName)
     {
-        var fr = string.Empty;
+        var forText = string.Empty;
         if (notImplementedName != null)
         {
-            fr = " for ";
+            forText = " for ";
             if (notImplementedName.GetType() == typeof(Type))
-                fr += ((Type)notImplementedName).FullName;
+                forText += ((Type)notImplementedName).FullName;
             else
-                fr += notImplementedName.ToString();
+                forText += notImplementedName.ToString();
         }
-        return CheckBefore(before) + "Not implemented case" + fr + " . internal program error. Please contact developer" +
+        return CheckBefore(before) + "Not implemented case" + forText + " . internal program error. Please contact developer" +
         ".";
     }
 }

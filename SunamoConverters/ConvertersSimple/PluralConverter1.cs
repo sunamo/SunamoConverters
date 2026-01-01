@@ -1,12 +1,9 @@
 namespace SunamoConverters.ConvertersSimple;
 
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
 /// <summary>
-/// Tato třída není statická jako ostatní convertery z důvodu že by se zbytečně využívali prostředky při startu aplikace, i když tuto třídu bych nakonec vůbec nevyužil.
-/// Snaž se prosím tuto třídu vytvářet jen jednou
-/// 
-/// 
+/// Converts English words between singular and plural forms.
+/// This class is not static (unlike other converters) to avoid wasting resources at application startup
+/// when the class might not be used at all. Please try to create only one instance of this class.
 /// </summary>
 public sealed partial class PluralConverter : ISimpleConverter
 {

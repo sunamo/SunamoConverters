@@ -1,7 +1,15 @@
 namespace SunamoConverters.ConvertersSimple;
 
+/// <summary>
+/// Converts between byte arrays and hexadecimal string representation.
+/// </summary>
 public class BlobConverter : ISimpleConverterT<string, byte[]>
 {
+    /// <summary>
+    /// Converts a byte array to a hexadecimal string representation.
+    /// </summary>
+    /// <param name="value">The byte array to convert.</param>
+    /// <returns>A hexadecimal string representation of the byte array.</returns>
     public string ConvertTo(byte[] value)
     {
         if (value == null || value.Length == 0)
@@ -10,14 +18,20 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         }
         const string HexFormat = "{0:X2}";
         StringBuilder stringBuilder = new StringBuilder();
-        foreach (byte buffer in value)
+        foreach (byte byteValue in value)
         {
-            stringBuilder.Append(/*string.Format*/ string.Format(HexFormat, buffer.ToString()));
+            stringBuilder.Append(string.Format(HexFormat, byteValue.ToString()));
         }
         return "X'" + stringBuilder.ToString() + "'";
     }
 
-    public byte[] ConvertFrom(string value)
+    /// <summary>
+    /// Converts a hexadecimal string representation to a byte array.
+    /// </summary>
+    /// <param name="value">The hexadecimal string to convert.</param>
+    /// <returns>The byte array representation, or null if input is null or empty.</returns>
+    /// <exception cref="Exception">Thrown when the string is not properly hex-encoded.</exception>
+    public byte[]? ConvertFrom(string value)
     {
         if (value == null || value.Length == 0)
         {
@@ -25,7 +39,7 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         }
         try
         {
-            value = value.Replace("X'", "").TrimEnd('\\'); ;
+            value = value.Replace("X'", "").TrimEnd('\\');
 
             int byteCount = Convert.ToInt32(value.Length / 2);
             byte[] buffer = new byte[byteCount];
@@ -38,18 +52,12 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         catch (Exception ex)
         {
             ThrowEx.Custom(ex);
-            //if (AppLangHelper.currentUICulture.TwoLetterISOLanguageName == "cs")
-            //{
-            //    throw new Exception("Zadan\u00FD \u0159et\u011Bzec se nezd\u00E1 buffer\u00FDt \u0161estn\u00E1ctkov\u011B k\u00F3dov\u00E1n\u00FD:");
-            //    return null;
-            //}
-            //else
-            //{
-            throw new Exception(XTheProvidedStringDoesNotAppearToBeHexEncoded + ":" + value);
-            return null;
-            //}
+            throw new Exception($"{XTheProvidedStringDoesNotAppearToBeHexEncoded}: {value}");
         }
     }
 
+    /// <summary>
+    /// Error message constant for when a string cannot be decoded as hex.
+    /// </summary>
     public static string XTheProvidedStringDoesNotAppearToBeHexEncoded = "TheProvidedStringDoesNotAppearToBeHexEncoded";
 }

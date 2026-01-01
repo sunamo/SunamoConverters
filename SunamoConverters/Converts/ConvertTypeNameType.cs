@@ -1,16 +1,22 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts between type name strings and System.Type objects for all supported basic types.
+/// </summary>
 public class ConvertTypeNameType
 {
     /// <summary>
-    /// Throwing exc if won't be number
-    /// If you will be compared to obtained type, do comparing like typeof(int, string, byte) not typeof(Int32, String, Byte)
-    /// Into A1 must be without "System."
+    /// Converts a type name string to a System.Type.
+    /// Throws an exception if the type is not supported.
+    /// If comparing the obtained type, use typeof(int, string, byte) not typeof(Int32, String, Byte).
+    /// The input string must be without "System." prefix.
     /// </summary>
-    /// <param name="idt"></param>
-    public static Type ToType(string idt)
+    /// <param name="typeName">The type name to convert (e.g., "string", "int", "Int32").</param>
+    /// <returns>The corresponding System.Type.</returns>
+    /// <exception cref="Exception">Thrown when the type name is not supported.</exception>
+    public static Type ToType(string typeName)
     {
-        switch (idt)
+        switch (typeName)
         {
             case "string":
                 return typeof(string);
@@ -71,7 +77,6 @@ public class ConvertTypeNameType
             case "UInt64":
                 return typeof(ulong);
         }
-        throw new Exception("Nepodporovan\u00FD typ");
-        return null;
+        throw new Exception($"Unsupported type name: '{typeName}'");
     }
 }

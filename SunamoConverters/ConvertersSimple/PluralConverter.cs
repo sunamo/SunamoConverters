@@ -1,12 +1,9 @@
 namespace SunamoConverters.ConvertersSimple;
 
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
 /// <summary>
-/// Tato třída není statická jako ostatní convertery z důvodu že by se zbytečně využívali prostředky při startu aplikace, i když tuto třídu bych nakonec vůbec nevyužil.
-/// Snaž se prosím tuto třídu vytvářet jen jednou
-/// 
-/// 
+/// Converts English words between singular and plural forms.
+/// This class is not static (unlike other converters) to avoid wasting resources at application startup
+/// when the class might not be used at all. Please try to create only one instance of this class.
 /// </summary>
 public sealed partial class PluralConverter : ISimpleConverter
 {
@@ -140,11 +137,10 @@ public sealed partial class PluralConverter : ISimpleConverter
     }
 
     /// <summary>
-    /// Call this method to get the properly pluralized 
+    /// Call this method to get the properly pluralized
     /// English version of the word.
     /// </summary>
     /// <param name = "word">The word needing conditional pluralization.</param>
-    /// <param name = "count">The number of items the word refers to.</param>
     /// <returns>The pluralized word</returns>
     public string ConvertTo(string word)
     {
@@ -163,9 +159,9 @@ public sealed partial class PluralConverter : ISimpleConverter
             return word; //not a word that can be pluralised!
         }
 
-        ////1. If the word ends in a consonant plus -y, change the -y into
-        /// ie and add an -s to form the plural 
-        ///e.g. enemy--enemies baby--babies
+        // 1. If the word ends in a consonant plus -y, change the -y into
+        // ie and add an -s to form the plural
+        // e.g. enemy--enemies baby--babies
         switch (word.Substring(word.Length - 2))
         {
             case "by":

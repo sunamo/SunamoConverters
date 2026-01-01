@@ -1,8 +1,16 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts between English month shortcuts (Jan, Feb, etc.) and full month names.
+/// </summary>
 public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertShortcutFullName
 {
-    public static string FromShortcut(string shortcut)
+    /// <summary>
+    /// Converts a month shortcut to its full English name.
+    /// </summary>
+    /// <param name="shortcut">The three-letter month shortcut (e.g., "Jan", "Feb").</param>
+    /// <returns>The full English month name (e.g., "January", "February"), or null if invalid.</returns>
+    public static string? FromShortcut(string shortcut)
     {
         switch (shortcut)
         {
@@ -32,11 +40,16 @@ public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertSho
                 return "December";
             default:
                 ThrowEx.NotImplementedCase(shortcut);
-                break;
+                return null!; // ThrowEx.NotImplementedCase always throws, this is unreachable
         }
-        return null;
     }
-    public static string ToShortcut(string fullName)
+
+    /// <summary>
+    /// Converts a full English month name to its three-letter shortcut.
+    /// </summary>
+    /// <param name="fullName">The full English month name (e.g., "January", "February").</param>
+    /// <returns>The three-letter month shortcut (e.g., "Jan", "Feb"), or null if the full name is invalid.</returns>
+    public static string? ToShortcut(string fullName)
     {
         switch (fullName)
         {
