@@ -1,3 +1,4 @@
+// variables names: ok
 namespace SunamoConverters._sunamo.SunamoExceptions;
 
 internal partial class ThrowEx
