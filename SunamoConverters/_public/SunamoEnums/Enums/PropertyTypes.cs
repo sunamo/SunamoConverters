@@ -1,4 +1,3 @@
-// variables names: ok
 namespace SunamoConverters._public.SunamoEnums.Enums;
 
 // variables names: ok
