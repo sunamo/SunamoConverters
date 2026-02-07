@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SunamoConverters.Tests\\SunamoConverters.Tests.csproj" />
+  <Project Path="RunnerConverters\\RunnerConverters.csproj" />
+  <Project Path="SunamoConverters\SunamoConverters.csproj" />
+</Solution>
