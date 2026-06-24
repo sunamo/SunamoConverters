@@ -1,18 +1,10 @@
 namespace SunamoConverters.ConvertersSimple;
 
-/// <summary>
-/// Converts English words between singular and plural forms.
-/// This class is not static (unlike other converters) to avoid wasting resources at application startup
-/// when the class might not be used at all. Please try to create only one instance of this class.
-/// </summary>
+// Converts English words between singular and plural forms.
+// This class is not static (unlike other converters) to avoid wasting resources at application startup
+// when the class might not be used at all. Please try to create only one instance of this class.
 public sealed partial class PluralConverter : ISimpleConverter
 {
-    /// <summary>
-    /// Call this method to get the singular 
-    /// version of a plural English word.
-    /// </summary>
-    /// <param name = "word">The word to turn into a singular</param>
-    /// <returns>The singular word</returns>
     public string ConvertFrom(string word)
     {
         word = word.ToLower();
@@ -74,7 +66,7 @@ public sealed partial class PluralConverter : ISimpleConverter
         {
             switch (word.Substring(word.Length - 3))
             {
-                //box--boxes 
+                //box--boxes
                 case "ses":
                 case "zes":
                 case "xes":
@@ -104,11 +96,7 @@ public sealed partial class PluralConverter : ISimpleConverter
         return word;
     }
 
-    /// <summary>
-    /// test if a word is plural
-    /// </summary>
-    /// <param name = "word">word to test</param>
-    /// <returns>true if a word is plural</returns>
+    // test if a word is plural
     private static bool TestIsPlural(string word)
     {
         word = word.ToLower();
@@ -157,7 +145,7 @@ public sealed partial class PluralConverter : ISimpleConverter
         {
             switch (word.Substring(word.Length - 3))
             {
-                //box--boxes 
+                //box--boxes
                 case "ses":
                 case "zes":
                 case "xes":
