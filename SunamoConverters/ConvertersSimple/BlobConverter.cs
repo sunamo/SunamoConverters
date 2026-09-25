@@ -17,7 +17,7 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
             return "";
         }
         const string HexFormat = "{0:X2}";
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         foreach (byte byteValue in value)
         {
             stringBuilder.Append(string.Format(HexFormat, byteValue.ToString()));

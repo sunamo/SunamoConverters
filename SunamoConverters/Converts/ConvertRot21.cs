@@ -97,7 +97,7 @@ public static class ConvertRot21
     /// <returns>The decoded text.</returns>
     public static string From(string text)
     {
-        StringBuilder stringBuilder = new StringBuilder(text.Length);
+        var stringBuilder = new StringBuilder(text.Length);
         foreach (char item in text)
         {
             foreach (var mapping in alphabet)
@@ -118,7 +118,7 @@ public static class ConvertRot21
     /// <returns>The encoded text.</returns>
     public static string To(string text)
     {
-        StringBuilder stringBuilder = new StringBuilder(text.Length);
+        var stringBuilder = new StringBuilder(text.Length);
         foreach (char item in text)
         {
             foreach (var mapping in alphabet)

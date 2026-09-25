@@ -13,7 +13,7 @@ public static class NullableConverter
     /// <returns>The boolean value, or false if null.</returns>
     public static bool Bool(bool? nullable)
     {
-        if (nullable == null)
+        if (nullable is null)
         {
             return false;
         }
