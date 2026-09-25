@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts month names between Czech and English.
+/// </summary>
 public class ConvertMonthCzechEnglish //: IConvertCzechEnglish
 {
+    /// <summary>
+    /// Converts an English month name to Czech.
+    /// </summary>
+    /// <param name="english">The English month name.</param>
+    /// <returns>The Czech month name, or null if not found.</returns>
     public static string? ToCzech(string english)
     {
         switch (english)
@@ -9,23 +17,23 @@ public class ConvertMonthCzechEnglish //: IConvertCzechEnglish
             case "January":
                 return "Leden";
             case "February":
-                return "Únor";
+                return "\u00DAnor";
             case "March":
-                return "Březen";
+                return "B\u0159ezen";
             case "April":
                 return "Duben";
             case "May":
-                return "Květen";
+                return "Kv\u011Bten";
             case "June":
-                return "Červen";
+                return "\u010Cerven";
             case "July":
-                return "Červenec";
+                return "\u010Cervenec";
             case "August":
                 return "Srpen";
             case "September":
-                return "Září";
+                return "Z\u00E1\u0159\u00ED";
             case "October":
-                return "Říjen";
+                return "\u0158\u00EDjen";
             case "November":
                 return "Listopad";
             case "December":
@@ -36,29 +44,34 @@ public class ConvertMonthCzechEnglish //: IConvertCzechEnglish
         return null;
     }
 
+    /// <summary>
+    /// Converts a Czech month name to English.
+    /// </summary>
+    /// <param name="czech">The Czech month name.</param>
+    /// <returns>The English month name, or null if not found.</returns>
     public static string? ToEnglish(string czech)
     {
         switch (czech)
         {
             case "Leden":
                 return "January";
-            case "Únor":
+            case "\u00DAnor":
                 return "February";
-            case "Březen":
+            case "B\u0159ezen":
                 return "March";
             case "Duben":
                 return "April";
-            case "Květen":
+            case "Kv\u011Bten":
                 return "May";
-            case "Červen":
+            case "\u010Cerven":
                 return "June";
-            case "Červenec":
+            case "\u010Cervenec":
                 return "July";
             case "Srpen":
                 return "August";
-            case "Září":
+            case "Z\u00E1\u0159\u00ED":
                 return "September";
-            case "Říjen":
+            case "\u0158\u00EDjen":
                 return "October";
             case "Listopad":
                 return "November";

@@ -1,7 +1,18 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts numeric type names to System.Type objects.
+/// </summary>
 public class ConvertTypeNameTypeNumbers
 {
+    /// <summary>
+    /// Converts a numeric type name string to a System.Type.
+    /// Returns null if the type is not a supported numeric type.
+    /// When comparing the obtained type, use typeof(int, string, byte) not typeof(Int32, String, Byte).
+    /// The input string must be without "System." prefix.
+    /// </summary>
+    /// <param name="typeName">The type name to convert (e.g., "int", "Int32", "float", "Single").</param>
+    /// <returns>The corresponding System.Type, or null if the type is not a supported numeric type.</returns>
     public static Type? ToType(string typeName)
     {
         switch (typeName)

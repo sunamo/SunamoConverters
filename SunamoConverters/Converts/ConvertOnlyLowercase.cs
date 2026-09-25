@@ -1,10 +1,23 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts text to and from a format where uppercase letters are replaced with a marker followed by lowercase.
+/// Uses '$' as the marker for uppercase letters.
+/// </summary>
 public class ConvertOnlyLowercase
 {
-    // Note: '%' causes HTTP Error 400 (invalid URL), '*' is potentially dangerous.
+    /// <summary>
+    /// Marker character used to indicate the next letter should be uppercase.
+    /// Note: '%' causes HTTP Error 400 (invalid URL), '*' is potentially dangerous.
+    /// </summary>
     public static char NextUpper = '$';
 
+    /// <summary>
+    /// Converts text to lowercase-only format.
+    /// Replaces each uppercase letter with the NextUpper marker followed by its lowercase version.
+    /// </summary>
+    /// <param name="text">The text to convert.</param>
+    /// <returns>The converted text with all uppercase letters replaced.</returns>
     public static string To(string text)
     {
         var stringBuilder = new StringBuilder();
@@ -24,6 +37,12 @@ public class ConvertOnlyLowercase
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Converts text from lowercase-only format back to original.
+    /// When NextUpper marker ('$') is found, the next character will be converted to uppercase.
+    /// </summary>
+    /// <param name="text">The text to convert back.</param>
+    /// <returns>The original text with uppercase letters restored.</returns>
     public static string From(string text)
     {
         bool isNextCharUpper = false;
@@ -50,8 +69,16 @@ public class ConvertOnlyLowercase
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Pre-processed conversions for letters.
+    /// </summary>
     private static Dictionary<char, char>? conversionMap;
 
+    /// <summary>
+    /// Encodes text using a custom letter conversion and number reversal algorithm.
+    /// </summary>
+    /// <param name="text">The text to encode.</param>
+    /// <returns>The encoded text.</returns>
     public static string Encode(string text)
     {
         // approach: pre process a mapping (dictionary) for letter conversions

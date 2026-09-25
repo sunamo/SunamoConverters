@@ -1,9 +1,18 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts between C# type shortcuts (e.g., "string", "int") and their full System type names (e.g., "System.String", "System.Int32").
+/// </summary>
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {
     const string SystemDot = "System.";
 
+    /// <summary>
+    /// Converts a C# type shortcut (e.g., "string", "int") to its full name (e.g., "System.String", "System.Int32").
+    /// </summary>
+    /// <param name="shortcut">The type shortcut.</param>
+    /// <returns>The full type name.</returns>
+    /// <exception cref="Exception">Thrown when the shortcut is not a supported keyword.</exception>
     public static string FromShortcut(string shortcut)
     {
         switch (shortcut)
@@ -41,11 +50,28 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
         }
         throw new Exception($"Unsupported keyword: '{shortcut}'");
     }
+    /// <summary>
+    /// Converts an object instance to its type shortcut.
+    /// </summary>
+    /// <param name="instance">The object instance.</param>
+    /// <returns>The type shortcut.</returns>
 
+    /// <summary>
+    /// Converts a full type name to its C# shortcut.
+    /// </summary>
+    /// <param name="fullName">The full type name (e.g., "System.String").</param>
+    /// <returns>The type shortcut (e.g., "string").</returns>
     public static string ToShortcut(object instance) => ToShortcut(instance.GetType().FullName!, false);
 
     public static string ToShortcut(string fullName) => ToShortcut(fullName, true);
 
+    /// <summary>
+    /// Converts a full type name to its C# shortcut.
+    /// </summary>
+    /// <param name="fullName">The full type name (e.g., "System.String" or "String").</param>
+    /// <param name="isThrowingExceptionWhenNotBasicType">If true, throws an exception for non-basic types; otherwise returns the full name.</param>
+    /// <returns>The type shortcut or the original full name.</returns>
+    /// <exception cref="Exception">Thrown when the type is not a basic type and isThrowingExceptionWhenNotBasicType is true.</exception>
     public static string ToShortcut(string fullName, bool isThrowingExceptionWhenNotBasicType)
     {
         if (!fullName.StartsWith(SystemDot))

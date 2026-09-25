@@ -1,13 +1,19 @@
 namespace SunamoConverters.ConvertersSimple;
 
-// Converts English words between singular and plural forms.
-// This class is not static (unlike other converters) to avoid wasting resources at application startup
-// when the class might not be used at all. Please try to create only one instance of this class.
+/// <summary>
+/// Converts English words between singular and plural forms.
+/// This class is not static (unlike other converters) to avoid wasting resources at application startup
+/// when the class might not be used at all. Please try to create only one instance of this class.
+/// </summary>
 public sealed partial class PluralConverter : ISimpleConverter
 {
-    // Store irregular plurals in a dictionary
+    /// <summary>
+    /// Store irregular plurals in a dictionary
+    /// </summary>
     private static Dictionary<string, string> s_dictionary = new Dictionary<string, string>();
-
+    /// <summary>
+    /// Run initialization on this singleton class
+    /// </summary>
     public PluralConverter()
     {
         Initialize();
@@ -130,6 +136,12 @@ public sealed partial class PluralConverter : ISimpleConverter
         }
     }
 
+    /// <summary>
+    /// Call this method to get the properly pluralized
+    /// English version of the word.
+    /// </summary>
+    /// <param name = "word">The word needing conditional pluralization.</param>
+    /// <returns>The pluralized word</returns>
     public string ConvertTo(string word)
     {
         if (TestIsPlural(word) == true)

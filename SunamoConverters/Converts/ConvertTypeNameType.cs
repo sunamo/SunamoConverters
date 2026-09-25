@@ -1,7 +1,19 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts between type name strings and System.Type objects for all supported basic types.
+/// </summary>
 public class ConvertTypeNameType
 {
+    /// <summary>
+    /// Converts a type name string to a System.Type.
+    /// Throws an exception if the type is not supported.
+    /// If comparing the obtained type, use typeof(int, string, byte) not typeof(Int32, String, Byte).
+    /// The input string must be without "System." prefix.
+    /// </summary>
+    /// <param name="typeName">The type name to convert (e.g., "string", "int", "Int32").</param>
+    /// <returns>The corresponding System.Type.</returns>
+    /// <exception cref="Exception">Thrown when the type name is not supported.</exception>
     public static Type ToType(string typeName)
     {
         switch (typeName)

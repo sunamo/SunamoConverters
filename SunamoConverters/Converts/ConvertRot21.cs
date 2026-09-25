@@ -1,9 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Provides methods for ROT21 character substitution cipher encoding and decoding.
+/// </summary>
 public static class ConvertRot21
 {
-    // Key contains all characters that can occur in the input.
-    // Value contains the same characters, but swapped for encoding.
+    /// <summary>
+    /// Mapping of characters for ROT21 encoding/decoding.
+    /// Key contains all characters that can occur in the input.
+    /// Value contains the same characters, but swapped for encoding.
+    /// </summary>
     private static List<ABT<char, char>> alphabet = new List<ABT<char, char>>();
 
 
@@ -84,6 +90,11 @@ public static class ConvertRot21
         alphabet.Add(new ABT<char, char>('~', 'A'));
     }
 
+    /// <summary>
+    /// Decodes a ROT21-encoded string.
+    /// </summary>
+    /// <param name="text">The encoded text.</param>
+    /// <returns>The decoded text.</returns>
     public static string From(string text)
     {
         var stringBuilder = new StringBuilder(text.Length);
@@ -100,6 +111,11 @@ public static class ConvertRot21
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// Encodes a string using ROT21 encoding.
+    /// </summary>
+    /// <param name="text">The text to encode.</param>
+    /// <returns>The encoded text.</returns>
     public static string To(string text)
     {
         var stringBuilder = new StringBuilder(text.Length);

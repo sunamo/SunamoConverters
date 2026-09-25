@@ -1,7 +1,16 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Converts text to Title Case convention where every word starts with uppercase.
+/// </summary>
 public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
+    /// <summary>
+    /// Converts text to Title Case where each word starts with an uppercase letter.
+    /// Examples: "hello world" => "Hello World", "helloWorld" => "Hello World", "hello 12 world" => "Hello 12 World"
+    /// </summary>
+    /// <param name="text">The text to convert.</param>
+    /// <returns>The text converted to Title Case.</returns>
     public static string ToConvention(string text)
     {
         text = text.ToLower();
