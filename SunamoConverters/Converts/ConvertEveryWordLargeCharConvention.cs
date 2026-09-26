@@ -14,7 +14,7 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
     public static string ToConvention(string text)
     {
         text = text.ToLower();
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         bool isNextCharUpperCase = true;
         foreach (char item in text)
         {
@@ -85,14 +85,12 @@ public class ConvertEveryWordLargeCharConvention //: IConvertConvention
                 isNextCharUpperCase = true;
             }
         }
-        string result = stringBuilder.ToString().Trim();
+        var result = stringBuilder.ToString().Trim();
 
         result = result.Replace("  ", " "); //SHReplace.ReplaceAll(result, " ", "");
         return result;
     }
 
     private static bool IsSpecialChar(char character)
-    {
-        return new List<char>(['\\', '(', ')', ']', '[', '.', '\'']).Any(specialChar => specialChar == character);
-    }
+        => new List<char>(['\\', '(', ')', ']', '[', '.', '\'']).Any(specialChar => specialChar == character);
 }

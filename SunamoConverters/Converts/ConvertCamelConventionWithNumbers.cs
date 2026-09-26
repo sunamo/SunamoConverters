@@ -27,9 +27,7 @@ public class ConvertCamelConventionWithNumbers
     /// <param name="text">The text to convert.</param>
     /// <returns>The text converted to camel case.</returns>
     public static string ToConvention(string text)
-    {
-        return SH.FirstCharLower(ConvertPascalConvention.ToConvention(text));
-    }
+        => SH.FirstCharLower(ConvertPascalConvention.ToConvention(text));
 
     /// <summary>
     /// Converts text from camel case convention to regular text.

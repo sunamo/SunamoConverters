@@ -49,7 +49,7 @@ public class ConvertDayShortcutString
                 return "Sun";
             default:
                 ThrowEx.NotImplementedCase(day);
-                return null!; // ThrowEx.NotImplementedCase always throws, this is unreachable
+                return null!;
         }
     }
 }

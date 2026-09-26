@@ -55,8 +55,8 @@ bool fillAlsoFirstTwo = true)
     }
     internal static void TypeAndMethodName(string stackTraceLine, out string type, out string methodName)
     {
-        var trimmedLine = stackTraceLine.Split("at ")[1].Trim();
-        var fullMethodPath = trimmedLine.Split("(")[0];
+        var trimmedLine = stackTraceLine.Split(new[] { "at " }, StringSplitOptions.None)[1].Trim();
+        var fullMethodPath = trimmedLine.Split(new[] { "(" }, StringSplitOptions.None)[0];
         var pathParts = fullMethodPath.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         methodName = pathParts[^1];
         pathParts.RemoveAt(pathParts.Count - 1);

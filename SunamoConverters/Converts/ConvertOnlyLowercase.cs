@@ -20,7 +20,7 @@ public class ConvertOnlyLowercase
     /// <returns>The converted text with all uppercase letters replaced.</returns>
     public static string To(string text)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         foreach (var item in text)
         {
             if (char.IsUpper(item))
@@ -46,7 +46,7 @@ public class ConvertOnlyLowercase
     public static string From(string text)
     {
         bool isNextCharUpper = false;
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
         foreach (var item in text)
         {
             if (isNextCharUpper)
@@ -81,22 +81,20 @@ public class ConvertOnlyLowercase
     /// <returns>The encoded text.</returns>
     public static string Encode(string text)
     {
-
         // approach: pre process a mapping (dictionary) for letter conversions
         // use a Dict for fastest look ups.  The first run, will take a little
         // extra time, subsequent usage will perform even better
         if (conversionMap == null || conversionMap.Count == 0) BuildConversionMappings();
 
         // our return val (efficient Appends)
-        StringBuilder stringBuilder = new StringBuilder();
+        var stringBuilder = new StringBuilder();
 
         // used for reversing the numbers
-        Stack<char> nums = new Stack<char>();
+        var nums = new Stack<char>();
 
         // iterate the input string
         for (int i = 0; i < text.Length; i++)
         {
-
             char character = text[i];
 
             // we have 3 cases:
@@ -110,14 +108,14 @@ public class ConvertOnlyLowercase
                 continue;
             }
 
-            if (Char.IsDigit(character))
+            if (char.IsDigit(character))
             {
                 nums.Push(character);
 
                 // we've reached the end of the input string OR
                 // we've reached the end of the number
                 if (i == text.Length - 1
-                || !Char.IsDigit(text[i + 1]))
+                || !char.IsDigit(text[i + 1]))
                 {
                     while (nums.Count > 0)
                     {
@@ -137,7 +135,6 @@ public class ConvertOnlyLowercase
     // create our mappings for letters
     private static void BuildConversionMappings()
     {
-
         conversionMap = new Dictionary<char, char>();
 
         // only loop once for both
@@ -145,10 +142,10 @@ public class ConvertOnlyLowercase
         {
             // add capitals version
             char val = (char)(character - 1);
-            val = Char.ToLower(val);
+            val = char.ToLower(val);
             conversionMap.Add(character, val);
             // add lower case version
-            conversionMap.Add(Char.ToLower(character), val);
+            conversionMap.Add(char.ToLower(character), val);
         }
 
         // special cases
@@ -157,13 +154,13 @@ public class ConvertOnlyLowercase
         conversionMap.Add(' ', 'y');
 
         // vowels
-        char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+        char[] vowels = ['a', 'e', 'i', 'o', 'u'];
         for (int i = 0; i < vowels.Length; i++)
         {
             var letter = vowels[i];
             var value = (i + 1).ToString()[0];
             conversionMap[letter] = value;
-            conversionMap[Char.ToUpper(letter)] = value;
+            conversionMap[char.ToUpper(letter)] = value;
         }
     }
 }

@@ -55,20 +55,15 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
     /// </summary>
     /// <param name="instance">The object instance.</param>
     /// <returns>The type shortcut.</returns>
-    public static string ToShortcut(object instance)
-    {
-        return ToShortcut(instance.GetType().FullName!, false);
-    }
 
     /// <summary>
     /// Converts a full type name to its C# shortcut.
     /// </summary>
     /// <param name="fullName">The full type name (e.g., "System.String").</param>
     /// <returns>The type shortcut (e.g., "string").</returns>
-    public static string ToShortcut(string fullName)
-    {
-        return ToShortcut(fullName, true);
-    }
+    public static string ToShortcut(object instance) => ToShortcut(instance.GetType().FullName!, false);
+
+    public static string ToShortcut(string fullName) => ToShortcut(fullName, true);
 
     /// <summary>
     /// Converts a full type name to its C# shortcut.

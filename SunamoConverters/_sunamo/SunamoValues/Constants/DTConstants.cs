@@ -5,14 +5,14 @@ internal class DTConstants
     internal const long SecondsInMinute = 60;
     internal const long SecondsInHour = SecondsInMinute * 60;
     internal const long SecondsInDay = SecondsInHour * 24;
-    internal static readonly List<string> DaysInWeekENShortcut = new List<string>(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]);
-    internal static readonly List<string> DaysInWeekEN = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-    internal static readonly List<string> MonthsInYearEN = new List<string> { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    internal static readonly List<string> DaysInWeekENShortcut = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    internal static readonly List<string> DaysInWeekEN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    internal static readonly List<string> MonthsInYearEN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     internal const int YearStartUnixDate = 1970;
-    internal static readonly DateTime UnixFsStart = new DateTime(YearStartUnixDate, 1, 1);
-    internal static readonly List<string> DaysInWeekCS = new List<string> { Pondeli, Utery, Streda, Ctvrtek, Patek, Sobota, Nedele };
-    internal static DateTime UnixTimeStartEpoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-    internal static DateTime WinTimeStartEpoch = new DateTime(1601, 1, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+    internal static readonly DateTime UnixFsStart = new(YearStartUnixDate, 1, 1);
+    internal static readonly List<string> DaysInWeekCS = [Pondeli, Utery, Streda, Ctvrtek, Patek, Sobota, Nedele];
+    internal static DateTime UnixTimeStartEpoch = new(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+    internal static DateTime WinTimeStartEpoch = new(1601, 1, 1, 1, 0, 0, 0, DateTimeKind.Utc);
     #region Dny v týdny CS
     internal const string Pondeli = "Pond\u011Bl\u00ED";
     internal const string Utery = "\u00DAter\u00FD";
@@ -36,5 +36,5 @@ internal class DTConstants
     internal const string Listopad = "Listopad";
     internal const string Prosinec = "Prosinec";
     #endregion
-    internal static readonly List<string> MonthsInYearCZ = new List<string> { Leden, Unor, Brezen, Duben, Kveten, Cerven, Cervenec, Srpen, Zari, Rijen, Listopad, Prosinec };
+    internal static readonly List<string> MonthsInYearCZ = [Leden, Unor, Brezen, Duben, Kveten, Cerven, Cervenec, Srpen, Zari, Rijen, Listopad, Prosinec];
 }

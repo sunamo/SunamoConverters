@@ -13,7 +13,7 @@ public class ConvertMonthShortcutNumber
     public static string? ToShortcut(int number)
     {
         var fullName = ConvertMonthNumberStringNotTranslateAble.ToString(number);
-        return fullName == null ? null : ConvertMonthShortcutFullNameNotTranslateAble.ToShortcut(fullName);
+        return fullName is null ? null : ConvertMonthShortcutFullNameNotTranslateAble.ToShortcut(fullName);
     }
 
     /// <summary>
@@ -25,6 +25,6 @@ public class ConvertMonthShortcutNumber
     public static int FromShortcut(string shortcut)
     {
         var fullName = ConvertMonthShortcutFullNameNotTranslateAble.FromShortcut(shortcut);
-        return ConvertMonthNumberStringNotTranslateAble.ToNumber(fullName!); // FromShortcut throws if invalid, so fullName is never null here
+        return ConvertMonthNumberStringNotTranslateAble.ToNumber(fullName!);
     }
 }

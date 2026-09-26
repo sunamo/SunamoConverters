@@ -40,7 +40,7 @@ public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertSho
                 return "December";
             default:
                 ThrowEx.NotImplementedCase(shortcut);
-                return null!; // ThrowEx.NotImplementedCase always throws, this is unreachable
+                return null!;
         }
     }
 
