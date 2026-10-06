@@ -1,5 +1,10 @@
 # SunamoConverters
 
+## Short description
+
+Převodníky mezi mnoha formáty a datovými typy v .NET.
+
+
 Converters between many formats and data types
 
 ## Overview
