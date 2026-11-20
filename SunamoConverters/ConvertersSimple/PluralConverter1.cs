@@ -66,7 +66,6 @@ public sealed partial class PluralConverter : ISimpleConverter
         {
             switch (word.Substring(word.Length - 3))
             {
-                //box--boxes
                 case "ses":
                 case "zes":
                 case "xes":
@@ -145,7 +144,6 @@ public sealed partial class PluralConverter : ISimpleConverter
         {
             switch (word.Substring(word.Length - 3))
             {
-                //box--boxes
                 case "ses":
                 case "zes":
                 case "xes":
