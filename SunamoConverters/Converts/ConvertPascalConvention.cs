@@ -1,16 +1,34 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert pascal convention type.
+/// </summary>
 public class ConvertPascalConvention
 {
+    /// <summary>
+    /// From convention.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The from convention result.</returns>
     public static string FromConvention(string text)
         => SH.FirstCharUpper(Regex.Replace(text, "[a-z][A-Z]", match => $"{match.Value[0]} {char.ToLower(match.Value[1])}").ToLower());
 
+    /// <summary>
+    /// Is pascal.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The is pascal result.</returns>
     public static bool IsPascal(string text)
     {
         var convertedText = ToConvention(text);
         return text == convertedText;
     }
 
+    /// <summary>
+    /// To convention.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to convention result.</returns>
     public static string ToConvention(string text)
     {
         var stringBuilder = new StringBuilder();

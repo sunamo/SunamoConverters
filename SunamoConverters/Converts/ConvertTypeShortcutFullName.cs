@@ -1,9 +1,17 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert type shortcut full name type.
+/// </summary>
 public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
 {
     const string SystemDot = "System.";
 
+    /// <summary>
+    /// From shortcut.
+    /// </summary>
+    /// <param name="shortcut">The shortcut.</param>
+    /// <returns>The from shortcut result.</returns>
     public static string FromShortcut(string shortcut)
     {
         switch (shortcut)
@@ -54,8 +62,19 @@ public static class ConvertTypeShortcutFullName //: IConvertShortcutFullName
     /// <returns>The type shortcut (e.g., "string").</returns>
     public static string ToShortcut(object instance) => ToShortcut(instance.GetType().FullName!, false);
 
+    /// <summary>
+    /// To shortcut.
+    /// </summary>
+    /// <param name="fullName">The full name.</param>
+    /// <returns>The to shortcut result.</returns>
     public static string ToShortcut(string fullName) => ToShortcut(fullName, true);
 
+    /// <summary>
+    /// To shortcut.
+    /// </summary>
+    /// <param name="fullName">The full name.</param>
+    /// <param name="isThrowingExceptionWhenNotBasicType">The is throwing exception when not basic type.</param>
+    /// <returns>The to shortcut result.</returns>
     public static string ToShortcut(string fullName, bool isThrowingExceptionWhenNotBasicType)
     {
         if (!fullName.StartsWith(SystemDot))

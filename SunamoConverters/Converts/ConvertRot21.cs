@@ -1,5 +1,8 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert rot 21 type.
+/// </summary>
 public static class ConvertRot21
 {
     // Key contains all characters that can occur in the input.
@@ -84,6 +87,11 @@ public static class ConvertRot21
         alphabet.Add(new ABT<char, char>('~', 'A'));
     }
 
+    /// <summary>
+    /// From.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The from result.</returns>
     public static string From(string text)
     {
         var stringBuilder = new StringBuilder(text.Length);
@@ -100,6 +108,11 @@ public static class ConvertRot21
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// To.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to result.</returns>
     public static string To(string text)
     {
         var stringBuilder = new StringBuilder(text.Length);

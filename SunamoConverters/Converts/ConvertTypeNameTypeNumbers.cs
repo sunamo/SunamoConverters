@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert type name type numbers type.
+/// </summary>
 public class ConvertTypeNameTypeNumbers
 {
+    /// <summary>
+    /// To type.
+    /// </summary>
+    /// <param name="typeName">The type name.</param>
+    /// <returns>The to type result.</returns>
     public static Type? ToType(string typeName)
     {
         switch (typeName)

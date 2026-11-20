@@ -1,10 +1,21 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert only lowercase type.
+/// </summary>
 public class ConvertOnlyLowercase
 {
     // Note: '%' causes HTTP Error 400 (invalid URL), '*' is potentially dangerous.
+    /// <summary>
+    /// The next upper.
+    /// </summary>
     public static char NextUpper = '$';
 
+    /// <summary>
+    /// To.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to result.</returns>
     public static string To(string text)
     {
         var stringBuilder = new StringBuilder();
@@ -24,6 +35,10 @@ public class ConvertOnlyLowercase
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// From.
+    /// </summary>
+    /// <returns>The from result.</returns>
     public static string From(string text)
     {
         bool isNextCharUpper = false;
@@ -52,6 +67,11 @@ public class ConvertOnlyLowercase
 
     private static Dictionary<char, char>? conversionMap;
 
+    /// <summary>
+    /// Encode.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The encode result.</returns>
     public static string Encode(string text)
     {
         // approach: pre process a mapping (dictionary) for letter conversions

@@ -3,11 +3,17 @@ namespace SunamoConverters.ConvertersSimple;
 // Converts English words between singular and plural forms.
 // This class is not static (unlike other converters) to avoid wasting resources at application startup
 // when the class might not be used at all. Please try to create only one instance of this class.
+/// <summary>
+/// Represents the plural converter type.
+/// </summary>
 public sealed partial class PluralConverter : ISimpleConverter
 {
     // Store irregular plurals in a dictionary
     private static Dictionary<string, string> s_dictionary = new Dictionary<string, string>();
 
+    /// <summary>
+    /// Initializes a new instance of the plural converter class.
+    /// </summary>
     public PluralConverter()
     {
         Initialize();
@@ -129,6 +135,11 @@ public sealed partial class PluralConverter : ISimpleConverter
         }
     }
 
+    /// <summary>
+    /// Convert to.
+    /// </summary>
+    /// <param name="word">The word.</param>
+    /// <returns>The convert to result.</returns>
     public string ConvertTo(string word)
     {
         if (TestIsPlural(word) == true)

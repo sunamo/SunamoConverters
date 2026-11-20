@@ -1,5 +1,8 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert snake convention type.
+/// </summary>
 public class ConvertSnakeConvention
 {
     private static string Sanitize(string input)
@@ -16,6 +19,11 @@ public class ConvertSnakeConvention
         return text.ToString();
     }
 
+    /// <summary>
+    /// To convention.
+    /// </summary>
+    /// <param name="input">The input.</param>
+    /// <returns>The to convention result.</returns>
     public static string ToConvention(string input)
     {
         var result = string.Concat(input.Select((character, index) => index > 0 && char.IsUpper(character) ? "_" + character.ToString() : character.ToString())).ToLower();

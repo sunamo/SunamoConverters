@@ -5,6 +5,11 @@ namespace SunamoConverters.ConvertersSimple;
 // when the class might not be used at all. Please try to create only one instance of this class.
 public sealed partial class PluralConverter : ISimpleConverter
 {
+    /// <summary>
+    /// Convert from.
+    /// </summary>
+    /// <param name="word">The word.</param>
+    /// <returns>The convert from result.</returns>
     public string ConvertFrom(string word)
     {
         word = word.ToLower();

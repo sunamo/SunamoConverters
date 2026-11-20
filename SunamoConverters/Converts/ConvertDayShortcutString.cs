@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert day shortcut string type.
+/// </summary>
 public class ConvertDayShortcutString
 {
+    /// <summary>
+    /// To number.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to number result.</returns>
     public static int ToNumber(string text)
     {
         var stringBuilder = new StringBuilder(text.ToLower());
@@ -16,6 +24,11 @@ public class ConvertDayShortcutString
         return -1;
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <param name="day">The day.</param>
+    /// <returns>The to string result.</returns>
     public static string ToString(int day)
     {
         switch (day)

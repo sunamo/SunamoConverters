@@ -1,13 +1,26 @@
 namespace SunamoConverters.ConvertersSimple;
 
+/// <summary>
+/// Represents the property types converter type.
+/// </summary>
 public class PropertyTypesConverter : ISimpleConverterT<PropertyTypes, string>
 {
+    /// <summary>
+    /// Convert to.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The convert to result.</returns>
     public PropertyTypes ConvertTo(string text)
     {
         ThrowEx.NotImplementedMethod();
         return PropertyTypes.Bool;
     }
 
+    /// <summary>
+    /// Convert from.
+    /// </summary>
+    /// <param name="propertyType">The property type.</param>
+    /// <returns>The convert from result.</returns>
     public string ConvertFrom(PropertyTypes propertyType)
     {
         switch (propertyType)
