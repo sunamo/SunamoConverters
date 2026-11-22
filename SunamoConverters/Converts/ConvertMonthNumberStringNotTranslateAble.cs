@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert month number string not translate able type.
+/// </summary>
 public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
 {
+    /// <summary>
+    /// To number.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to number result.</returns>
     public static int ToNumber(string text)
     {
         switch (text)
@@ -34,6 +42,11 @@ public class ConvertMonthNumberStringNotTranslateAble //: IConvertNumberString
         throw new Exception($"Invalid English month name '{text}' in ConvertMonthNumberString.ToNumber()");
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <param name="number">The number.</param>
+    /// <returns>The to string result.</returns>
     public static string? ToString(int number)
     {
         switch (number)

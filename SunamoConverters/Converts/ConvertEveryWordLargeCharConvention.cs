@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert every word large char convention type.
+/// </summary>
 public class ConvertEveryWordLargeCharConvention //: IConvertConvention
 {
+    /// <summary>
+    /// To convention.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The to convention result.</returns>
     public static string ToConvention(string text)
     {
         text = text.ToLower();

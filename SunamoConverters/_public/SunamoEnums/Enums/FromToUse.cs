@@ -1,12 +1,24 @@
 namespace SunamoConverters._public.SunamoEnums.Enums;
 
-// variables names: ok
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+/// <summary>
+/// Represents the from to use converters type.
+/// </summary>
 public enum FromToUseConverters
 {
+    /// <summary>
+    /// The date time value.
+    /// </summary>
     DateTime,
+    /// <summary>
+    /// The unix value.
+    /// </summary>
     Unix,
+    /// <summary>
+    /// The unix just time value.
+    /// </summary>
     UnixJustTime,
+    /// <summary>
+    /// The none value.
+    /// </summary>
     None
 }

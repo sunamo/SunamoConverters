@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the rot 13 type.
+/// </summary>
 public static class Rot13
 {
+    /// <summary>
+    /// Transform.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns>The transform result.</returns>
     public static string Transform(string value)
     {
         char[] array = value.ToCharArray();

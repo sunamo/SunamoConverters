@@ -1,7 +1,15 @@
 namespace SunamoConverters.ConvertersSimple;
 
+/// <summary>
+/// Represents the blob converter type.
+/// </summary>
 public class BlobConverter : ISimpleConverterT<string, byte[]>
 {
+    /// <summary>
+    /// Convert to.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns>The convert to result.</returns>
     public string ConvertTo(byte[] value)
     {
         if (value == null || value.Length == 0)
@@ -17,6 +25,11 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         return "X'" + stringBuilder.ToString() + "'";
     }
 
+    /// <summary>
+    /// Convert from.
+    /// </summary>
+    /// <param name="value">The value.</param>
+    /// <returns>The convert from result.</returns>
     public byte[]? ConvertFrom(string value)
     {
         if (value == null || value.Length == 0)
@@ -42,5 +55,8 @@ public class BlobConverter : ISimpleConverterT<string, byte[]>
         }
     }
 
+    /// <summary>
+    /// The x the provided string does not appear to be hex encoded.
+    /// </summary>
     public static string XTheProvidedStringDoesNotAppearToBeHexEncoded = "TheProvidedStringDoesNotAppearToBeHexEncoded";
 }

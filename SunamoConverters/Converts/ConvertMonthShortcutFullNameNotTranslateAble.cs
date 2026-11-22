@@ -1,7 +1,15 @@
 namespace SunamoConverters.Converts;
 
+/// <summary>
+/// Represents the convert month shortcut full name not translate able type.
+/// </summary>
 public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertShortcutFullName
 {
+    /// <summary>
+    /// From shortcut.
+    /// </summary>
+    /// <param name="shortcut">The shortcut.</param>
+    /// <returns>The from shortcut result.</returns>
     public static string? FromShortcut(string shortcut)
     {
         switch (shortcut)
@@ -36,6 +44,11 @@ public static class ConvertMonthShortcutFullNameNotTranslateAble //: IConvertSho
         }
     }
 
+    /// <summary>
+    /// To shortcut.
+    /// </summary>
+    /// <param name="fullName">The full name.</param>
+    /// <returns>The to shortcut result.</returns>
     public static string? ToShortcut(string fullName)
     {
         switch (fullName)

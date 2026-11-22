@@ -1,3 +1,2 @@
-// variables names: ok
 global using Xunit;
-global using SunamoConverters;
+global using SunamoConverters;global using SunamoConverters.Converts;
