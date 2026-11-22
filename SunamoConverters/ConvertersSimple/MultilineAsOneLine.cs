@@ -27,7 +27,24 @@ public class MultilineAsOneLine
     /// <returns>The convert to result.</returns>
     public static string ConvertTo(string input)
     {
-        return input.Replace(N, string.Empty).Replace(R, RR);
+        // Every kind of line break (CRLF, LF, CR) becomes one token, so no line break is lost.
+        return (input ?? string.Empty).Replace(R + N, R).Replace(N, R).Replace(R, RR);
+    }
+
+    /// <summary>
+    /// The NN constant: a line break token written by older app files.
+    /// </summary>
+    public const string NN = "\\n";
+
+    /// <summary>
+    /// Converts one-line text back to multiline text with the given line break; reads both the \r and the \n token.
+    /// </summary>
+    /// <param name="input">The one-line text.</param>
+    /// <param name="newLine">The line break to put in place of every token.</param>
+    /// <returns>The multiline text.</returns>
+    public static string ConvertFrom(string input, string newLine)
+    {
+        return (input ?? string.Empty).Replace(RR + NN, newLine).Replace(RR, newLine).Replace(NN, newLine);
     }
 
     /// <summary>
